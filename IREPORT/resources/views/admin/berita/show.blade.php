@@ -1,1 +1,1 @@
-show berita
+show berita 

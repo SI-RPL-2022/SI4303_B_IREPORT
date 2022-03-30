@@ -1,1 +1,1 @@
-index berita
+index berita 

@@ -4,4 +4,4 @@
 
 detail page
 
-@endsection
+@endsection 

@@ -1,7 +1,7 @@
 {{-- form input page --}}
 @extends('layouts.master')
 @section('konten')
-
+ 
 <div class="container">
     <form action="" method="POST" style="padding-bottom: 150px">
         @csrf

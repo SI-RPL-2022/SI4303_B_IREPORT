@@ -4,4 +4,4 @@
 
 home page
 
-@endsection
+@endsection 

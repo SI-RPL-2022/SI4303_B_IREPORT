@@ -1,1 +1,1 @@
-create berita
+create berita 
