@@ -15,6 +15,11 @@ class CreateBeritaTable extends Migration
     {
         Schema::create('berita', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('judul_berita');
+            $table->string('subjudul');
+            $table->string('foto');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
