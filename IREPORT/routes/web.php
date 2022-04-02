@@ -59,3 +59,12 @@ Route::get('indexLaporan', function () {
 Route::get('showLaporan', function () {
     return view('admin/laporanUSer/show');
 });
+
+
+    // Route::get('/laporan', 'LaporanController@index')->name('produk');
+    Route::get('/laporan', 'LaporanController@index');
+    Route::post('/laporan', 'LaporanController@store');
+    Route::get('/laporan/create', 'LaporanController@create');
+    Route::delete('/laporan/{id}', 'LaporanController@destroy');
+    Route::get('/laporan/{id}/edit', 'LaporanController@edit');
+    Route::put('/laporan/{id}', 'LaporanController@update');
