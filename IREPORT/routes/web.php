@@ -69,3 +69,5 @@ Route::get('showBerita', function () {
     Route::get('/laporan/{id}/edit', 'LaporanController@edit');
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
+
+// p
