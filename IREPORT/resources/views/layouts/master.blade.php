@@ -35,8 +35,14 @@
   </head>
   <body>
     @include('partials.navbar')
-    @yield('konten')
+    <div class="container" style="padding-top: 20px">
+      @yield('konten')
+    </div>
+    
+
     @include('partials.footer')
+
+    
 
 
 

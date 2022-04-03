@@ -3,7 +3,7 @@
 @section('konten')
  
 <div class="container">
-    <form action="" method="POST" style="padding-bottom: 150px">
+    <form action="/laporan" method="POST" style="padding-bottom: 150px">
         @csrf
             <div class="form-group">
                 <label>Judul</label>
@@ -13,17 +13,17 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror --}}
     
-            <div class="form-group pt-3">
+            {{-- <div class="form-group pt-3">
                 <label>Kategori</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="kategori">
                     <option selected>Buka untuk memilih kategori</option>
-                    <option value="1">Jalan Raya</option>
-                    <option value="2">Trotoar</option>
-                    <option value="3">Penerangan jalan</option>
-                    <option value="4">Gorong-gorong</option>
+                    <option value="Jalan Raya">Jalan Raya</option>
+                    <option value="Trotoar">Trotoar</option>
+                    <option value="Penerangan jalan">Penerangan jalan</option>
+                    <option value="Gorong-gorong">Gorong-gorong</option>
                   </select>
                   
-            </div>
+            </div> --}}
             {{-- @error('umur')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror --}}
@@ -40,7 +40,7 @@
             
             <div class="form-group pt-3">
                 <label>Foto</label>
-                <input type="file" class="form-control" name="gambarBarang">
+                <input type="file" class="form-control" name="fotoLokasi">
             </div>
 
             <div class="form-group pt-3">

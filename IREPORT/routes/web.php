@@ -50,21 +50,22 @@ Route::get('showBerita', function () {
 });
 
 // laporan
-Route::get('createLaporan', function () {
-    return view('admin/laporanUSer/create');
-});
-Route::get('indexLaporan', function () {
-    return view('admin/laporanUSer/index');
-});
-Route::get('showLaporan', function () {
-    return view('admin/laporanUSer/show');
-});
+// Route::get('createLaporan', function () {
+//     return view('admin/laporanUSer/create');
+// });
+// Route::get('indexLaporan', function () {
+//     return view('admin/laporanUSer/index');
+// });
+// Route::get('showLaporan', function () {
+//     return view('admin/laporanUSer/show');
+// });
 
 
     // Route::get('/laporan', 'LaporanController@index')->name('produk');
-    Route::get('/laporan', 'LaporanController@index');
-    Route::post('/laporan', 'LaporanController@store');
     Route::get('/laporan/create', 'LaporanController@create');
-    Route::delete('/laporan/{id}', 'LaporanController@destroy');
+    Route::post('/laporan', 'LaporanController@inputData');
+    Route::get('/laporan', 'LaporanController@index');
+    Route::get('/laporan/{id}', 'LaporanController@show');
     Route::get('/laporan/{id}/edit', 'LaporanController@edit');
     Route::put('/laporan/{id}', 'LaporanController@update');
+    Route::delete('/laporan/{id}', 'LaporanController@destroy');
