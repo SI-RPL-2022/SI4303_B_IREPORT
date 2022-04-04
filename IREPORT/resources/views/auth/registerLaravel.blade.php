@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IREPORT | Registration Page</title>
+    <title>AdminLTE 3 | Registration Page</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('template2/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('template2/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('template2/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition register-page">
@@ -88,7 +88,7 @@
                     </a>
                 </div>
 
-                <a href="/login" class="text-center">I already have a membership</a>
+                <a href="login.html" class="text-center">I already have a membership</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
@@ -96,11 +96,11 @@
     <!-- /.register-box -->
 
     <!-- jQuery -->
-    <script src="{{ asset('template2/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('template2/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('template2/dist/js/adminlte.min.js') }}"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
 </body>
 
 </html>
