@@ -15,39 +15,39 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('master', function () {
-    return view('layouts/master');
-});
+// Route::get('master', function () {
+//     return view('layouts/master');
+// });
 
-Route::get('about', function () {
-    return view('about');
-});
+// Route::get('about', function () {
+//     return view('about');
+// });
 // user
-Route::get('detail', function () {
-    return view('user/detail');
-});
-Route::get('edit', function () {
-    return view('user/edit');
-});
-Route::get('home', function () {
-    return view('user/home');
-});
-Route::get('input', function () {
-    return view('user/input');
-});
+// Route::get('detail', function () {
+//     return view('user/detail');
+// });
+// Route::get('edit', function () {
+//     return view('user/edit');
+// });
+// Route::get('home', function () {
+//     return view('user/home');
+// });
+// Route::get('input', function () {
+//     return view('user/input');
+// });
 
 
 // admin
 // berita
-Route::get('createBerita', function () {
-    return view('admin/berita/create');
-});
-Route::get('indexBerita', function () {
-    return view('admin/berita/index');
-});
-Route::get('showBerita', function () {
-    return view('admin/berita/show');
-});
+// Route::get('createBerita', function () {
+//     return view('admin/berita/create');
+// });
+// Route::get('indexBerita', function () {
+//     return view('admin/berita/index');
+// });
+// Route::get('showBerita', function () {
+//     return view('admin/berita/show');
+// });
 
 // laporan
 // Route::get('createLaporan', function () {
@@ -73,4 +73,4 @@ Route::get('showBerita', function () {
 // p
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
