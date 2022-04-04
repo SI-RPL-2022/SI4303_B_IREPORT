@@ -22,15 +22,17 @@ class LaporanController extends Controller
         //     'name.required' => 'Namanya diisi yaa',
         //     'umur.required'  => 'Eits umurnya juga yaa',
         //     'bio.required'  => 'Bio jgn dibiarin kosong lah hehe']);
+        // $fileName=time().'.'.$request->file("fotoLokasi")->extension();
         $query = DB::table('laporan')->insert([
             "judul" => $request["judul"],
-            // "kategori" => $request["kategori"],
+            "kategori" => $request["kategori"],
             "tanggal" => $request["tanggal"],
             "alamat" => $request["lokasi"],
             "foto" => $request["fotoLokasi"],
+            // "foto" => $fileName,
             "keterangan" => $request["keterangan"],
         ]);
-
+        // $request->fotoLokasi->move(public_path("image"), $fileName);
         return redirect('/laporan');
     }
 

@@ -7,25 +7,25 @@
         @csrf
         @method('put')
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label>Judul</label>
             <input type="text" class="form-control" name="judul" value="{{ $edit_->judul }}" placeholder="Masukkan Judul">
-        </div>
+        </div> --}}
         {{-- @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror --}}
 
-        {{-- <div class="form-group pt-3">
+        <div class="form-group pt-3">
             <label>Kategori</label>
             <select class="form-select" aria-label="Default select example" name="kategori">
-                <option selected>Buka untuk memilih kategori</option>
+                <option selected>{{ $edit_->kategori }}</option>
                 <option value="Jalan Raya">Jalan Raya</option>
                 <option value="Trotoar">Trotoar</option>
                 <option value="Penerangan jalan">Penerangan jalan</option>
                 <option value="Gorong-gorong">Gorong-gorong</option>
               </select>
               
-        </div> --}}
+        </div>
         {{-- @error('umur')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror --}}
@@ -42,7 +42,7 @@
         
         <div class="form-group pt-3">
             <label>Foto</label>
-            <input type="file" class="form-control" name="fotoLokasi">
+            <input type="file" class="form-control" name="fotoLokasi" value="{{ $edit_->foto }}">
         </div>
 
         <div class="form-group pt-3">

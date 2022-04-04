@@ -1225,8 +1225,14 @@ section {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+.card-img-top{
+  position:sticky;
+  height: 200px;
+  width: 100%;
+}
+
 #footer {
-  /* position:relative; */
+  /* position:fixed; */
   color: #ffffff;
   font-size: 14px;
   background: #0c4774;

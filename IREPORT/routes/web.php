@@ -19,9 +19,9 @@ Route::get('/', function () {
 //     return view('layouts/master');
 // });
 
-// Route::get('about', function () {
-//     return view('about');
-// });
+Route::get('about', function () {
+    return view('about');
+});
 // user
 // Route::get('detail', function () {
 //     return view('user/detail');

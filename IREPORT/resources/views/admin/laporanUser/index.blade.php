@@ -1,1 +1,44 @@
-index laporan 
+index laporan
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Judul</th>
+                <th>Tanggal</th>
+                <th>Lokasi</th>
+                <th>Foto</th>
+                <th>Keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($tampil as $key => $item)
+                <tr>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $item->judul }}</td>
+                    <td>{{ $item->tanggal }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->foto }}</td>
+                    <td>{{ $item->keterangan }}</td>
+                    <td>
+                        <form action="/laporan/{{$item->id}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <a href="/laporan/{{ $item->id }}" class="btn btn-info btn-sm">Detail</a>
+                            <a href="/laporan/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete"></input>
+                        </form>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5">
+                        <center>Silahkan tambahkan cast</center> 
+                    </td>
+                </tr>
+            @endforelse
+            
+        </tbody>
+    </table>
+</div>
