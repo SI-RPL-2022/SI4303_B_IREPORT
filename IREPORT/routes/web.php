@@ -71,3 +71,6 @@ Route::get('showBerita', function () {
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
 
 // p
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
