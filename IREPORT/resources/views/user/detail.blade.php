@@ -20,8 +20,4 @@
         </div> --}}
     </div>
 </center>
-<<<<<<< HEAD
-@endsection 
-=======
 @endsection
->>>>>>> 2fc8f2009e4fc994d0de4572d708e9607f79b794

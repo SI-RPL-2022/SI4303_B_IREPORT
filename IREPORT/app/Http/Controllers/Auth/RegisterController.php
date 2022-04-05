@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Profile;
+use DB;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,11 +55,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'nama' => ['required'], 
-            'alamat' => ['required'], 
-            'ttl' => ['required'],
+            'password' => ['required', 'string', 'min:1', 'confirmed'],
+            // 'nama' => ['required'], 
+            // 'alamat' => ['required'], 
+            // 'tempat_lahir' => ['required'],
+            // 'tanggal_lahir' => ['required'],
+            // 'pp' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
+        // dd($data);
     }
 
     /**
@@ -68,19 +73,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
-        Profile::create([
-            'nama' => $data['nama'], 
-            'alamat' => $data['alamat'], 
-            'ttl' => $data['ttl'], 
-            'user_id' => $user->id
-        ]);
+        // $fileName=time().'.'.$data->pp->extension();
+        // $data->pp->move(public_path("image"), $fileName);
+        // Profile::create([
+        //     'name' => $data['nama'], 
+        //     'alamat' => $data['alamat'], 
+        //     'tempat_lahir' => $data['tempatLahir'],
+        //     'tanggal_lahir' => $data['tanggalLahir'],
+        //     'pp' => $fileName,   
+        //     'user_id' => $user->id
+        // ]);
+        // dd($user);
 
-        return $user;
+        // return $user;
     }
 }

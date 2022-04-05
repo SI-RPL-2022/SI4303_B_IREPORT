@@ -1,4 +1,5 @@
 <?php
+// use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +71,6 @@ Route::get('about', function () {
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
 
-// p
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+// Route::post('/register', 'RegisterController@create');

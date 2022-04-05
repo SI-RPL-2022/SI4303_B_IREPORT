@@ -27,6 +27,12 @@
                     Tambah Laporan
                 </button>
             </a>
+
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
             
             {{-- <form class="d-flex">
                 <button class="btn btn-outline-dark" type="submit">
