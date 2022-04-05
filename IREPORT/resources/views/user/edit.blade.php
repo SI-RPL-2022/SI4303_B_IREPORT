@@ -3,7 +3,7 @@
 
 @section('konten') 
 <div class="container">
-    <form action="/laporan/{{ $edit_->id }}" method="POST" style="padding-bottom: 150px">
+    <form action="/laporan/{{ $edit_->id }}" method="POST" style="padding-bottom: 150px" enctype="multipart/form-data">
         @csrf
         @method('put')
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Laporan;
 
 class LaporanController extends Controller
 {
@@ -14,25 +15,38 @@ class LaporanController extends Controller
     public function inputData(Request $request){
         // dd($request->all());
         
-        // $request->validate([
-        //     'name' => 'required',
-        //     'umur' => 'required',
-        //     'bio' => 'required'],
-        // [
-        //     'name.required' => 'Namanya diisi yaa',
-        //     'umur.required'  => 'Eits umurnya juga yaa',
-        //     'bio.required'  => 'Bio jgn dibiarin kosong lah hehe']);
-        // $fileName=time().'.'.$request->file("fotoLokasi")->extension();
-        $query = DB::table('laporan')->insert([
-            "judul" => $request["judul"],
-            "kategori" => $request["kategori"],
-            "tanggal" => $request["tanggal"],
-            "alamat" => $request["lokasi"],
-            "foto" => $request["fotoLokasi"],
-            // "foto" => $fileName,
-            "keterangan" => $request["keterangan"],
+        $request->validate([
+            'kategori' => 'required',
+            'tanggal' => 'required',
+            'lokasi' => 'required',
+            'fotoLokasi' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'keterangan' => 'required'],
+        [
+            'kategori.required' => 'Harus diisi',
+            'tanggal.required'  => 'Harus diisi',
+            'lokasi.required'  => 'Harus diisi',
+            'fotoLokasi.required'  => 'Harus diisi',
+            'keterangan'  => 'Harus diisi'
         ]);
-        // $request->fotoLokasi->move(public_path("image"), $fileName);
+        // $query = DB::table('laporan')->insert([
+        //     "judul" => $request["judul"],
+        //     "kategori" => $request["kategori"],
+        //     "tanggal" => $request["tanggal"],
+        //     "alamat" => $request["lokasi"],
+        //     "foto" => $request["fotoLokasi"],    
+        //     // "foto" => $fileName,
+        //     "keterangan" => $request["keterangan"],
+        // ]);
+        
+        $fileName=time().'.'.$request->fotoLokasi->extension();
+        $request->fotoLokasi->move(public_path("image"), $fileName);
+        $dataLaporan = new Laporan;
+        $dataLaporan->kategori=$request["kategori"];
+        $dataLaporan->tanggal=$request["tanggal"];
+        $dataLaporan->alamat=$request["lokasi"];
+        $dataLaporan->foto=$fileName;
+        $dataLaporan->keterangan=$request["keterangan"];
+        $dataLaporan->save ();
         return redirect('/laporan');
     }
 
@@ -58,24 +72,45 @@ class LaporanController extends Controller
 
     public function update($id, Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'umur' => 'required',
-        //     'bio' => 'required'],
-        // [
-        //     'name.required' => 'Namanya diisi yaa',
-        //     'umur.required'  => 'Eits umurnya juga yaa',
-        //     'bio.required'  => 'Bio jgn dibiarin kosong lah hehe']);
-        $query = DB::table('laporan')
-        -> where('id', $id)
-        -> update([
-            "judul" => $request["judul"],
-            // "kategori" => $request["kategori"],
+        $request->validate([
+            'kategori' => 'required',
+            'tanggal' => 'required',
+            'lokasi' => 'required',
+            'fotoLokasi' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'keterangan' => 'required'],
+        [
+            'kategori.required' => 'Harus diisi',
+            'tanggal.required'  => 'Harus diisi',
+            'lokasi.required'  => 'Harus diisi',
+            'fotoLokasi.required'  => 'Harus diisi',
+            'keterangan'  => 'Harus diisi'
+        ]);
+        $edit=Laporan::find($id);
+        if ($request->fotoLokasi=="") {
+            $filename=$edit->fotoLokasi;
+        }else{
+            $fileName=time().'.'.$request->fotoLokasi->extension();
+            $request->fotoLokasi->move(public_path("image"), $fileName);
+        }
+
+        $edit-> update([
+            // "judul" => $request["judul"],
+            "kategori" => $request["kategori"],
             "tanggal" => $request["tanggal"],
             "alamat" => $request["lokasi"],
-            "foto" => $request["fotoLokasi"],
+            "foto" => $fileName,
             "keterangan" => $request["keterangan"],
         ]);
+        // $query = DB::table('laporan')
+        // -> where('id', $id)
+        // -> update([
+        //     "judul" => $request["judul"],
+        //     "kategori" => $request["kategori"],
+        //     "tanggal" => $request["tanggal"],
+        //     "alamat" => $request["lokasi"],
+        //     "foto" => $request["fotoLokasi"],
+        //     "keterangan" => $request["keterangan"],
+        // ]);
         return redirect('/laporan');
     }
 
