@@ -2,7 +2,7 @@
 @section('konten')
 <center>
     <div class="card" style="width: 50%; text-align:left; margin-bottom: 40px">
-        <img class="card-img-top" style="height: 360px" src="{{ asset('/template/assets/img/'.$detail->foto)}}" alt="..." />
+        <img class="card-img-top" style="height: 360px" src="{{ asset('image/'.$detail->foto)}}" alt="..." />
         <div class="card-body">
                 <h4 class="fw-bolder">{{ $detail->kategori }}</h4>
                 <i class="fa fa-map-marker"></i> {{ $detail->alamat }} <br>
@@ -20,15 +20,4 @@
         </div> --}}
     </div>
 </center>
-{{-- <h1>Judul: {{ $detail->judul }}</h1>
-<h3>Tanggal: {{ $detail->tanggal }}</h3>
-<p>Lokasi: {{ $detail->alamat }}</p>
-<p>Foto: {{ $detail->foto }}</p>
-<p>Kategori: {{ $detail->kategori }}</p>
-<p>Keterangan: {{ $detail->keterangan }}</p> --}}
-
-
-
-{{-- <div class="col mb-5"> --}}
-   
 @endsection 
