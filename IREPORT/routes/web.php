@@ -71,6 +71,6 @@ Route::get('about', function () {
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
 
 // p
-Auth::routes();
+Auth::routes(); 
 
 // Route::get('/home', 'HomeController@index')->name('home');
