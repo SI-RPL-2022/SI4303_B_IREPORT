@@ -71,13 +71,7 @@ Route::get('about', function () {
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
 
-<<<<<<< HEAD
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-// Route::post('/register', 'RegisterController@create');
-=======
 // p
 Auth::routes(); 
 
 // Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> d83ad652803f767fde56f79ea90ee7f2bfcab482
