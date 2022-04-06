@@ -56,11 +56,11 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:1', 'confirmed'],
-            // 'nama' => ['required'], 
-            // 'alamat' => ['required'], 
-            // 'tempat_lahir' => ['required'],
-            // 'tanggal_lahir' => ['required'],
-            // 'pp' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        //     'nama' => ['required'], 
+        //     'alamat' => ['required'], 
+        //     'tempat_lahir' => ['required'],
+        //     'tanggal_lahir' => ['required'],
+        //     'pp' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         // dd($data);
     }
@@ -79,17 +79,31 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // $fileName=time().'.'.$data->pp->extension();
-        // $data->pp->move(public_path("image"), $fileName);
-        // Profile::create([
-        //     'name' => $data['nama'], 
+        Profile::create([
+        //     'nama' => $data['nama'], 
         //     'alamat' => $data['alamat'], 
         //     'tempat_lahir' => $data['tempatLahir'],
         //     'tanggal_lahir' => $data['tanggalLahir'],
-        //     'pp' => $fileName,   
-        //     'user_id' => $user->id
-        // ]);
-        // dd($user);
+        //     'pp' => 'p.jpg',   
+        //     'user_id' => $user->id,
+        //     'point' =>'0'
+
+            // 'nama' => $data['nama'], 
+            // 'alamat' => $data['alamat'], 
+        //     'tempatLahir' => $data['tempat_lahir'],
+        //     'tanggalLahir' => $data['tanggal_lahir'],
+        //     'foto' => $data['pp'],   
+        //     'user_id' => $user->id,
+        //     'point' =>'0'
+
+            // 'nama' => '', 
+            // 'alamat' => '', 
+            // 'tempatLahir' => '',
+            // 'tanggalLahir' => '',
+            // 'foto' => '',   
+            // 'user_id' => $user->id,
+            // 'point' =>''
+        ]);
 
         // return $user;
     }

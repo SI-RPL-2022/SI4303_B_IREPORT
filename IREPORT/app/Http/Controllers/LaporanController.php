@@ -53,7 +53,7 @@ class LaporanController extends Controller
     public function index()
     {
         $tampil = DB::table('laporan')->get();
-        return view('user.home', compact('tampil'));
+        return view('user.home_', compact('tampil'));
     }
 
     public function show($id)

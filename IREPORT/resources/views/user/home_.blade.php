@@ -5,7 +5,7 @@
     @forelse ($tampil as $data)
         <div class="col mb-5">
             <div class="card">
-                <img class="card-img-top" src="{{ asset('/template/assets/img/'.$data->foto)}}" alt="..." />
+                <img class="card-img-top" src="{{ asset('image/'.$data->foto)}}" alt="..." />
                 <div class="card-body">
                         <h4 class="fw-bolder">{{ $data->kategori }}</h4>
                         <i class="fa fa-map-marker"></i> {{ $data->alamat }} <br>
