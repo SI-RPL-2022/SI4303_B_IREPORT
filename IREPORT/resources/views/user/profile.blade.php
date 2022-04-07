@@ -7,8 +7,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-3">
+
+        <!-- testing merge branch-->
+
 <!-- test -->
 <!-- test -->
+
           <!-- Profile Image -->
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
