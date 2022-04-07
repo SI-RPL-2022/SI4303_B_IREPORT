@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('konten')
+
+{{-- bismillah --}}
+
 <section class="content">
     <div class="container-fluid">
       <div class="row">
