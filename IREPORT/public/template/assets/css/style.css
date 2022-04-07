@@ -206,16 +206,11 @@ h6 {
     line-height: 0;
     margin-left: 5px;
 }
-<<<<<<< HEAD
-.navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: rgb(21, 163, 228);
-=======
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
     color: rgb(21, 163, 228);
->>>>>>> 2b8f826638e2584d9469830476c6d2bca5c79d6e
 }
 .navbar .dropdown ul {
     display: block;
