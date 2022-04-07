@@ -73,38 +73,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
+        // $fileName=time().'.'.$data->foto->extension();
+        // $data->foto->move(public_path("image"), $fileName);
+        
         Profile::create([
-        //     'nama' => $data['nama'], 
-        //     'alamat' => $data['alamat'], 
-        //     'tempat_lahir' => $data['tempatLahir'],
-        //     'tanggal_lahir' => $data['tanggalLahir'],
-        //     'pp' => 'p.jpg',   
-        //     'user_id' => $user->id,
-        //     'point' =>'0'
-
-            // 'nama' => $data['nama'], 
-            // 'alamat' => $data['alamat'], 
-        //     'tempatLahir' => $data['tempat_lahir'],
-        //     'tanggalLahir' => $data['tanggal_lahir'],
-        //     'foto' => $data['pp'],   
-        //     'user_id' => $user->id,
-        //     'point' =>'0'
-
-            // 'nama' => '', 
-            // 'alamat' => '', 
-            // 'tempatLahir' => '',
-            // 'tanggalLahir' => '',
-            // 'foto' => '',   
-            // 'user_id' => $user->id,
-            // 'point' =>''
+            'nama' => $data['nama'], 
+            'alamat' => $data['alamat'], 
+            'tempatLahir' => $data['tempatLahir'],
+            'tanggalLahir' => $data['tanggalLahir'],
+            'foto' => $data['foto']->move(public_path("image"), time().'.'.$data['foto']->extension()),
+            'point' => 0,
+            'user_id' => $user->id
         ]);
 
-        // return $user;
+        return $user;
     }
 }
