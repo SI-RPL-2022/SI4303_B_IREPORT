@@ -23,7 +23,7 @@
         </div>
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Register a new membership</p>
+                <p class="login-box-msg">Register a new account</p>
                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">
@@ -40,7 +40,7 @@
                     </span>
                     @enderror
                     {{-- data profile --}}
-                    {{-- <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <input type="text" name="nama" class="form-control" placeholder="Masukkan Nickname Anda">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -52,7 +52,7 @@
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror --}}
+                    @enderror
 
                     {{-- --- --}}
                     <div class="input-group mb-3">
@@ -93,18 +93,11 @@
                     </div>
 
                     {{-- data profile --}}
-
                     <div class="input-group mb-3">
-                        {{-- <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password"> --}}
-                        <textarea name="alamat" placeholder="Masukkan Alamat Anda" cols="30" rows="1" class="form-control"></textarea>
-                        {{-- <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div> --}}
+                        <textarea name="alamat" placeholder="Masukkan Alamat Rumah Anda" cols="30" rows="1" class="form-control"></textarea>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir Anda">
+                        <input type="text" name="tempatLahir" class="form-control" placeholder="Masukkan Tempat Lahir Anda">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-map-marker"></span>
@@ -112,15 +105,10 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="Tanggal Lahir Anda">
-                        {{-- <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-clock"></span>
-                            </div>
-                        </div> --}}
+                        <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir Anda">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="file" name="pp" class="form-control py-1" placeholder="Masukkan foto profile anda">
+                        <input type="file" name="foto" class="form-control py-1" placeholder="Masukkan foto profile anda">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-camera"></span>
