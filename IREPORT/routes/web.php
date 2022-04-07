@@ -16,9 +16,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('master', function () {
-//     return view('layouts/master');
-// });
+Route::get('profile', function () {
+    return view('user/profile');
+});
 
 Route::get('about', function () {
     return view('about');

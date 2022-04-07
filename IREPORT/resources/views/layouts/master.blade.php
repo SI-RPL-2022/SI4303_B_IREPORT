@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>IREPORT</title>
         <meta content="" name="description">
         <meta content="" name="keywords">
 
@@ -30,7 +30,7 @@
         <link href="{{ asset('template/assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
         <link href="{{ asset('template/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
         <link href="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> --}}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('template2/plugins/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -67,5 +67,14 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('template/assets/js/main.js') }}"></script>
+
+    <!-- jQuery -->
+    <script src="{{ asset('template2/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- Bootstrap 4 -->
+    {{-- <script src="{{ asset('template2/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
+    <!-- AdminLTE App -->
+    <script src="{{ asset('template2/dist/js/adminlte.min.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ asset('template2/dist/js/demo.js') }}"></script>
   </body>
 </html>
