@@ -23,6 +23,7 @@
                   {{ Auth::user()->name }}
                 @endauth
               </h3>
+              <h3 class="profile-username text-center">Hehe Kucing</h3>
 
               <p class="text-muted text-center">Software Engineer</p>
 
