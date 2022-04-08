@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('konten')
 
-{{-- Testing_berkah --}}
+{{-- Testing_berkah_final --}}
 
 <section class="content">
     <div class="container-fluid">
