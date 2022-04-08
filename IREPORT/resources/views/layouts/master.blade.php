@@ -72,4 +72,4 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('template2/dist/js/demo.js') }}"></script>
   </body>
-</html>
+</html> 
