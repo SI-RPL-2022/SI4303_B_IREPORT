@@ -62,15 +62,15 @@ Route::get('about', function () {
 // });
 
 
-    // Route::get('/laporan', 'LaporanController@index')->name('produk');
-    Route::get('/laporan/create', 'LaporanController@create');
-    Route::post('/laporan', 'LaporanController@inputData');
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/laporan/create', 'LaporanController@create');
+        Route::post('/laporan', 'LaporanController@inputData');
+        Route::get('/laporan/{id}/edit', 'LaporanController@edit');
+        Route::put('/laporan/{id}', 'LaporanController@update');
+        Route::delete('/laporan/{id}', 'LaporanController@destroy');
+    });
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/{id}', 'LaporanController@show');
-    Route::get('/laporan/{id}/edit', 'LaporanController@edit');
-    Route::put('/laporan/{id}', 'LaporanController@update');
-    Route::delete('/laporan/{id}', 'LaporanController@destroy');
-
 // p
 Auth::routes(); 
 
