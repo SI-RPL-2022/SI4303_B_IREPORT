@@ -14,6 +14,15 @@
                      alt="User profile picture">
               </div>
 
+              <h3 class="profile-username text-center">
+                @guest
+                    User
+                @endguest
+
+                @auth
+                  {{ Auth::user()->name }}
+                @endauth
+              </h3>
               <h3 class="profile-username text-center">Hehe Kucing</h3>
 
               <p class="text-muted text-center">Software Engineer</p>
