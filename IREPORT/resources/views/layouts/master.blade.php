@@ -73,3 +73,4 @@
     <script src="{{ asset('template2/dist/js/demo.js') }}"></script>
   </body>
 </html> 
+{{-- Tes --}}
