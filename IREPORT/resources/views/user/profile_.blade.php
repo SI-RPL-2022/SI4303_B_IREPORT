@@ -9,9 +9,13 @@
           <div class="card card-primary card-outline">
             <div class="card-body box-profile">
               <div class="text-center">
+                {{-- profile-user-img img-fluid --}}
                 <img class="profile-user-img img-fluid img-circle"
-                     src="{{ asset('image/hehekucing.jpg') }}"
-                     alt="User profile picture">
+                     src="{{ asset('image/'.$detail->foto) }}"
+                     alt="User profile picture" style="width: 100px; height: 100px; object-fit:cover">
+
+                     {{-- <img src="{{ asset('image/'.$detail->foto) }}"
+                     alt="User profile picture" style="width: 100px; height: 100px"> --}}
               </div>
 
               <h3 class="profile-username text-center">
@@ -23,9 +27,9 @@
                   {{ Auth::user()->name }}
                 @endauth
               </h3>
-              <h3 class="profile-username text-center">Hehe Kucing</h3>
+              <h3 class="profile-username text-center">{{ $detail->nama }}</h3>
 
-              <p class="text-muted text-center">Software Engineer</p>
+              {{-- <p class="text-muted text-center">Software Engineer</p> --}}
 
               {{-- <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
@@ -54,9 +58,9 @@
             <div class="card-body">
               <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
-              <p class="text-muted">
-                B.S. in Computer Science from the University of Tennessee at Knoxville
-              </p>
+              {{-- <p class="text-muted">
+                {{ Auth::user()->tempatLahir }}
+              </p> --}}
 
               <hr>
 
@@ -66,7 +70,7 @@
 
               <hr>
 
-              <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+              {{-- <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
 
               <p class="text-muted">
                 <span class="tag tag-danger">UI Design</span>
@@ -80,7 +84,7 @@
 
               <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
 
-              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p> --}}
             </div>
             <!-- /.card-body -->
           </div>

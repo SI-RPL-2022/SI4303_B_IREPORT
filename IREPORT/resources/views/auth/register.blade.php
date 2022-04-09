@@ -24,6 +24,7 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new account</p>
+                
                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">

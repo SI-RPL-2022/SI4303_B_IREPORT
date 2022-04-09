@@ -483,6 +483,17 @@ mark,
   height: auto;
 }
 
+.profile-user-img {
+  border: 3px solid #adb5bd;
+  margin: 0 auto;
+  padding: 3px;
+  width: 100px;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #fff;
@@ -35582,12 +35593,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   background-color: #343a40;
 }
 
-.profile-user-img {
-  border: 3px solid #adb5bd;
-  margin: 0 auto;
-  padding: 3px;
-  width: 100px;
-}
+
 
 .profile-username {
   font-size: 21px;
@@ -44884,10 +44890,6 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
 
 .img-rounded {
   border-radius: 0.25rem;
-}
-
-.img-circle {
-  border-radius: 50%;
 }
 
 .img-size-64,
