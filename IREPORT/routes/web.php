@@ -12,13 +12,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('profile', function () {
-    return view('user/profile');
-});
+// Route::get('profile', function () {
+//     return view('user/profile');
+// });
 
 Route::get('about', function () {
     return view('about');
@@ -71,6 +71,10 @@ Route::get('about', function () {
     });
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/{id}', 'LaporanController@show');
+
+    Route::get('/profile/{id}', 'ProfileController@show');
+    Route::get('/profile/{id}/edit', 'ProfileController@edit');
+    Route::put('/profile/{id}', 'ProfileController@update');
 // p
 Auth::routes(); 
 
