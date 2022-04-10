@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('konten')
-{{-- Testing_berkah_final --}}
+{{-- cobain --}}
 <section class="content">
     <div class="container-fluid">
       <div class="row">
