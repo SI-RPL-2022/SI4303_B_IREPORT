@@ -33,6 +33,18 @@
                         <a class="dropdown-item" href="/login">Login</a>
                     @endguest
                     @auth
+                    {{-- @forelse ($tampil_ as $item)
+                    <li>
+                        <a class="dropdown-item" href="/profile/{{ $item->id }}">Profile</a>
+                    </li>
+                    @empty
+                        
+                    @endforelse --}}
+                    {{-- @foreach ($tampil_ as $item)
+                        <li>
+                            <a class="dropdown-item" href="/profile/{{ $item->id }}">Profile</a>
+                        </li>
+                    @endforeach --}}
                     <li>
                         <a class="dropdown-item" href="/profile">Profile</a>
                     </li>
