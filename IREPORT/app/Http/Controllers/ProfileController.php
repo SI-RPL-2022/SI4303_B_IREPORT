@@ -9,16 +9,18 @@ use DB;
 
 class ProfileController extends Controller
 {
-    public function index()
-    {
-        return view ('user.profile_');
-        // dd($profile);
-    }
+    // public function index()
+    // {
+    //     // return view ('user.profile_');
+    //     // dd($profile);
+    //     $tampil_ = DB::table('profile')->get();
+    //     return view('user.profile.index', compact('tampil_'));
+    // }
 
     public function edit()
     {
         $editProfile = Profile::where('user_id', Auth::id())->first();
-        return view ('user.profile.index', compact('editProfile'));
+        return view ('user.profile_', compact('editProfile'));
         // dd($profile);
     }
 
@@ -53,16 +55,6 @@ class ProfileController extends Controller
             "foto" => $fileName,
             "tanggalLahir" => $request["tanggalLahir"],
         ]);
-        // $query = DB::table('laporan')
-        // -> where('id', $id)
-        // -> update([
-        //     "judul" => $request["judul"],
-        //     "nama" => $request["nama"],
-        //     "alamat" => $request["alamat"],
-        //     "alamat" => $request["lokasi"],
-        //     "foto" => $request["foto"],
-        //     "keterangan" => $request["keterangan"],
-        // ]);
         return redirect('/profile');
     }
 
