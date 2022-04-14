@@ -94,11 +94,11 @@
                 <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update Profile</a></li>
               </ul>
             </div><!-- /.card-header -->
-            <div class="card-body">
+
+            <div class="card-body" style="margin-bottom: 84px">
+
               <div class="tab-content">
-
                 <div class="tab-pane" id="settings">
-
                   <form action="/profile/{{ $editProfile->id }}" method="POST" style="" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
                     @method('put')
