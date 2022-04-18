@@ -1,13 +1,11 @@
 @extends('layouts.master')
 @section('konten')
 
-<form class="form-inline" id="formItem">
+{{-- <form class="form-inline" id="formItem">
     <input class="form-control mr-sm-2" type="search" placeholder="Search"  id="keyword" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchItem">Search</button>
 </form>
-{{-- <button class="btn btn-primary" id="cart">
-    <i class="fas fa-shopping-cart"></i>(0)
-</button> --}}
+
 
 <script>
         var formCari = document.getElementById("formItem")
@@ -26,7 +24,7 @@ var filterSearch = document.getElementById("keyword")
             var filterSearch_ = filtering(value)
             showItem(filterSearch_)
         })
-</script>
+</script> --}}
 
 
 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="padding-bottom: 130px">    
