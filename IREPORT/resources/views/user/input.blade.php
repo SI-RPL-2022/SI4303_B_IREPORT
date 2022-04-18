@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('konten')
  
-<div class="container">
-    <form action="/laporan" method="POST" style="padding-bottom: 150px" enctype="multipart/form-data">
+<div class="container" style="background-color: white; margin-bottom: 150px; border-radius: 12px">
+    <form action="/laporan" method="POST" style="padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
         @csrf
             {{-- <div class="form-group">
                 <label>Judul</label>

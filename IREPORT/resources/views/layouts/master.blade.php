@@ -40,9 +40,9 @@
         <link rel="stylesheet" href="{{ asset('template2/dist/css/adminlte.min.css') }}">
 
   </head>
-  <body>
+  <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url({{ asset('image/bgIREPORT.png') }})">
     @include('partials.navbar')
-    <div class="container" style="padding-top: 20px">
+    <div class="container" style="padding-top: 20px" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url('image/bgIREPORT.png')">
       @yield('konten')
     </div>
     
