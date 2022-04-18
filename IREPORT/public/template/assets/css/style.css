@@ -8,6 +8,28 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/* .voteYES{
+    background-color: white;
+    color: rgb(255, 255, 255);
+    border: 6px solid #555555;
+}
+  
+.voteYES:hover{
+    background-color: #ffba0a;
+    color: white;
+}
+
+.voteNO{
+    background-color: white;
+    color: rgb(98, 90, 90);
+    border: 6px solid #555555;
+}
+  
+.voteNO:hover{
+    background-color: #ff3a3a;
+    color: rgb(109, 105, 105);
+} */
+
 body {
     font-family: "Open Sans", sans-serif;
     color: #444444;

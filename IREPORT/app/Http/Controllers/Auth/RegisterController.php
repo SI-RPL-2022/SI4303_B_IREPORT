@@ -60,7 +60,7 @@ class RegisterController extends Controller
         //     'alamat' => ['required'], 
         //     'tempat_lahir' => ['required'],
         //     'tanggal_lahir' => ['required'],
-        //     'pp' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         // dd($data);
     }
@@ -87,7 +87,8 @@ class RegisterController extends Controller
             'alamat' => $data['alamat'], 
             'tempatLahir' => $data['tempatLahir'],
             'tanggalLahir' => $data['tanggalLahir'],
-            'foto' => $data['foto']->move(public_path("image"), time().'.'.$data['foto']->extension()),
+            // 'foto' => $data['foto']->move(public_path("image"), time().'.'.$data['foto']->extension()),
+            'foto' => 'noPP.jpg',
             'point' => 0,
             'user_id' => $user->id
         ]);
