@@ -12,7 +12,7 @@
                 {{-- profile-user-img img-fluid --}}
                 <img class="profile-user-img img-fluid img-circle"
                      src="{{ asset('image/'.$editProfile->foto) }}"
-                     alt="User profile picture" style="width: 100px; height: 100px; object-fit:cover">
+                     alt="Profile Picture" style="width: 150px; height: 150px; object-fit:cover">
               </div>
 
               <h3 class="profile-username text-center">
@@ -51,7 +51,7 @@
               <h3 class="card-title">About Me</h3>
             </div>
             <!-- /.card-header -->
-            <div class="card-body" style="margin-bottom: 28px">
+            <div class="card-body" style="margin-bottom: 1px">
               <strong><i class="fas fa-calendar mr-1"></i> Tempat, Tanggal Lahir</strong>
               <p class="text-muted">{{ $editProfile->tempatLahir }}, {{ $editProfile->tanggalLahir }}</p>
               <hr>
@@ -91,13 +91,63 @@
               <ul class="nav nav-pills">
                 {{-- <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
                 <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li> --}}
-                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update Profile</a></li>
+                {{-- <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Update Profile</a></li> --}}
+                <li class="nav-item"><a class="nav-link disabled">Update Profile</a></li>
               </ul>
             </div><!-- /.card-header -->
 
-            <div class="card-body" style="margin-bottom: 84px">
+            <div class="card-body" style="margin-bottom: 106px">
+              <form action="/profile/{{ $editProfile->id }}" method="POST" style="" enctype="multipart/form-data" class="form-horizontal">
+                @csrf
+                @method('put')
+                <div class="form-group row">
+                  <label  class="col-sm-2 col-form-label">Nama</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="nama" value="{{ $editProfile->nama }}" class="form-control" placeholder="Masukkan Nickname Anda">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Alamat</label>
+                  <div class="col-sm-10">
+                    <textarea name="alamat" value="{{ $editProfile->alamat}}" placeholder="Update alamat rumah anda" cols="30" rows="1" class="form-control">{{ $editProfile->alamat}}</textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Tempat Lahir</label>
+                  <div class="col-sm-10">
+                    <input type="text" value="{{ $editProfile->tempatLahir }}" name="tempatLahir" class="form-control" placeholder="Masukkan Tempat Lahir Anda">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputName2" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                  <div class="col-sm-10">
+                    <input type="date" value="{{ $editProfile->tanggalLahir }}"name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir Anda">
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Foto Profil</label>
+                  <div class="col-sm-10">
+                    <input type="file" value="{{ $editProfile->foto }}" name="foto" class="form-control" placeholder="Masukkan foto profile anda">
+                  </div>
+                </div>
+                {{-- <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                      </label>
+                    </div>
+                  </div>
+                </div> --}}
+                <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
 
-              <div class="tab-content">
+              {{-- <div class="tab-content">
                 <div class="tab-pane" id="settings">
                   <form action="/profile/{{ $editProfile->id }}" method="POST" style="" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
@@ -133,15 +183,6 @@
                         <input type="file" value="{{ $editProfile->foto }}" name="foto" class="form-control" placeholder="Masukkan foto profile anda">
                       </div>
                     </div>
-                    {{-- <div class="form-group row">
-                      <div class="offset-sm-2 col-sm-10">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                          </label>
-                        </div>
-                      </div>
-                    </div> --}}
                     <div class="form-group row">
                       <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -150,8 +191,9 @@
                   </form>
                 </div>
                 <!-- /.tab-pane -->
-              </div>
+              </div> --}}
               <!-- /.tab-content -->
+              
             </div><!-- /.card-body -->
           </div>
           <!-- /.card -->
