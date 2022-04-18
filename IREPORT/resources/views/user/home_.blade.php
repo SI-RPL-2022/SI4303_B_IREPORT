@@ -1,33 +1,26 @@
 @extends('layouts.master')
 @section('konten')
 
-{{-- <form class="form-inline" id="formItem">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search"  id="keyword" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchItem">Search</button>
+<form class="form-inline" method="GET" action="/laporan" style="padding-bottom: 16px">
+    <input value="{{ request('search') }}" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" >Search</button>
 </form>
 
-
-<script>
-        var formCari = document.getElementById("formItem")
-        formCari.addEventListener("submit", function(event){
-            event.preventDefault()
-            var kataKunci = document.getElementById("keyword").value
-
-            var filtered = filtering(kataKunci)
-            showItem(filtered)
-        })
-
-var filterSearch = document.getElementById("keyword")
-        filterSearch.addEventListener("keyup", function(event){
-            var value = event.target.value
-
-            var filterSearch_ = filtering(value)
-            showItem(filterSearch_)
-        })
-</script> --}}
+@if (request('search')==true)
+    <div>
+        <a href="/laporan">
+            <button class="btn btn-light my-2 my-sm-0" style="border-radius: 20px">
+                {{ request('search') }} <i class="fa fa-times-circle-o"></i>
+            </button>
+        </a>
+    </div>
+    
+@else
+    
+@endif
 
 
-<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="padding-bottom: 130px">    
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="padding-bottom: 130px; padding-top: 40px">    
     @forelse ($tampil as $data)
         <div class="col mb-5">
             <div class="card">
@@ -55,10 +48,11 @@ var filterSearch = document.getElementById("keyword")
                 {{-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 </div> --}}
             </div>
+            
         </div>
     @empty
         
     @endforelse
-
+    {{-- {{ $tampil->links() }} --}}
 </div>
 @endsection 
