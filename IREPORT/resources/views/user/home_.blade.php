@@ -12,9 +12,9 @@
                         <i class="fa fa-book"></i> {{ Str::limit( $data->keterangan, 18) }} <br>
                         <i class="fa fa-clock"></i> {{ $data->tanggal }}
                         <br>
-                        {{-- <i class="fa fa-sort-up"> </i>
-                        <button class="btn btn-primary voteYES"> <i class="fa fa-toggle-up"></i> </button>
-                        <button class="btn btn-secondary voteNO"> <i class="fa fa-toggle-down"></i> </button> 123 --}}
+                        {{-- <i class="fa fa-sort-up"> </i> --}}
+                        <button class="btn btn-primary"> <i class="fa fa-toggle-up"></i> </button>
+                        <button class="btn btn-secondary"> <i class="fa fa-toggle-down"></i> </button> 123
 
                         
                     <form action="/laporan/{{$data->id}}" method="POST">
