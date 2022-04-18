@@ -50,11 +50,23 @@ class LaporanController extends Controller
         return redirect('/laporan');
     }
 
-    public function index()
+    // public function index()
+    // {
+    //     $tampil = DB::table('laporan')->get();
+    //     return view('user.home_', compact('tampil'));
+    // }
+
+    public function index(Request $request)
     {
-        $tampil = DB::table('laporan')->get();
+        // $tampil = DB::table('laporan')->get();
+        if ($request->has('search')) {
+            $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
+        } else {
+            $tampil = DB::table('laporan')->get();
+        }
         return view('user.home_', compact('tampil'));
     }
+
 
     public function show($id)
     {
