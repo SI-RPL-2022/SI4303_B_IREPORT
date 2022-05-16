@@ -39,6 +39,9 @@ Route::get('about', function () {
 
 
 // admin
+Route::get('main', function () {
+    return view('layouts/admin');
+});
 // berita
 // Route::get('createBerita', function () {
 //     return view('admin/berita/create');
