@@ -9,7 +9,6 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/laporan" style="color: rgb(0, 90, 163); font-family: poppins">Home</a></li>
                 <li class="nav-item"> <a class="nav-link" aria-current="page" href="/about" style="color: rgb(0, 90, 163); font-family: poppins">About</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#!">About</a> </li>
                 <li class="nav-item"> 
                     <a href="/laporan/create" style="text-decoration: none">
                         <button  class="btn btn-outline-light" style="background-color: rgb(17, 169, 240); border-radius: 4px; padding:8px; font-size:10px">
@@ -30,13 +29,35 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {{-- <li><a class="dropdown-item" href="#!">Hai User</a></li> --}}
                     {{-- <li><hr class="dropdown-divider" /></li> --}}
+                    @guest
+                        <a class="dropdown-item" href="/login">Login</a>
+                    @endguest
+                    @auth
+                    {{-- @forelse ($tampil_ as $item)
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item" href="/profile/{{ $item->id }}">Profile</a>
+                    </li>
+                    @empty
+                        
+                    @endforelse --}}
+                    {{-- @foreach ($tampil_ as $item)
+                        <li>
+                            <a class="dropdown-item" href="/profile/{{ $item->id }}">Profile</a>
+                        </li>
+                    @endforeach --}}
+                    <li>
+                        <a class="dropdown-item" href="/profile">Profile</a>
+                    </li>
+                    <li>
+                        {{-- <a class="dropdown-item" href="{{ route('logout') }}" --}}
+                        <a class="dropdown-item" href="/laporan"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             Logout
                         </a>
                     </li>
+                    @endauth
+                    
                 </ul>
             </div>
             

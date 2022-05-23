@@ -1,7 +1,26 @@
 @extends('layouts.master')
 @section('konten')
 
-<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="padding-bottom: 130px">    
+<form class="form-inline" method="GET" action="/laporan" style="padding-bottom: 16px">
+    <input value="{{ request('search') }}" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" >Search</button>
+</form>
+
+@if (request('search')==true)
+    <div>
+        <a href="/laporan">
+            <button class="btn btn-light my-2 my-sm-0" style="border-radius: 20px">
+                {{ request('search') }} <i class="fa fa-times-circle-o"></i>
+            </button>
+        </a>
+    </div>
+    
+@else
+    
+@endif
+
+
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" style="padding-bottom: 130px; padding-top: 40px">    
     @forelse ($tampil as $data)
         <div class="col mb-5">
             <div class="card">
@@ -11,6 +30,12 @@
                         <i class="fa fa-map-marker"></i> {{ $data->alamat }} <br>
                         <i class="fa fa-book"></i> {{ Str::limit( $data->keterangan, 18) }} <br>
                         <i class="fa fa-clock"></i> {{ $data->tanggal }}
+                        <br>
+                        {{-- <i class="fa fa-sort-up"> </i> --}}
+                        <button class="btn btn-primary"> <i class="fa fa-toggle-up"></i> </button>
+                        <button class="btn btn-secondary"> <i class="fa fa-toggle-down"></i> </button> 123
+
+                        
                     <form action="/laporan/{{$data->id}}" method="POST">
                         @csrf
                         @method('delete')
@@ -23,10 +48,11 @@
                 {{-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 </div> --}}
             </div>
+            
         </div>
     @empty
         
     @endforelse
-
+    {{-- {{ $tampil->links() }} --}}
 </div>
 @endsection 

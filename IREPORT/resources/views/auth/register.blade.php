@@ -24,6 +24,7 @@
         <div class="card">
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Register a new account</p>
+                
                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3">
@@ -107,7 +108,7 @@
                     <div class="input-group mb-3">
                         <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir Anda">
                     </div>
-                    <div class="input-group mb-3">
+                    {{-- <div class="input-group mb-3">
                         <input type="file" name="foto" class="form-control py-1" placeholder="Masukkan foto profile anda">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -115,6 +116,10 @@
                             </div>
                         </div>
                     </div>
+                    @error('foto')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror --}}
+
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block">

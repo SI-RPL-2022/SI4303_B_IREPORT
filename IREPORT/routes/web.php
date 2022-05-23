@@ -16,8 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('profile', function () {
-    return view('user/profile');
+Route::get('pp', function () {
+    return view('user/profile_');
 });
 
 Route::get('about', function () {
@@ -39,6 +39,9 @@ Route::get('about', function () {
 
 
 // admin
+Route::get('main', function () {
+    return view('layouts/admin');
+});
 // berita
 // Route::get('createBerita', function () {
 //     return view('admin/berita/create');
@@ -62,15 +65,22 @@ Route::get('about', function () {
 // });
 
 
-    // Route::get('/laporan', 'LaporanController@index')->name('produk');
-    Route::get('/laporan/create', 'LaporanController@create');
-    Route::post('/laporan', 'LaporanController@inputData');
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/laporan/create', 'LaporanController@create');
+        Route::post('/laporan', 'LaporanController@inputData');
+        Route::get('/laporan/{id}/edit', 'LaporanController@edit');
+        Route::put('/laporan/{id}', 'LaporanController@update');
+        Route::delete('/laporan/{id}', 'LaporanController@destroy');
+    });
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/{id}', 'LaporanController@show');
-    Route::get('/laporan/{id}/edit', 'LaporanController@edit');
-    Route::put('/laporan/{id}', 'LaporanController@update');
-    Route::delete('/laporan/{id}', 'LaporanController@destroy');
 
+    // profile
+    // Route::get('/profile', 'ProfileController@index');
+    // Route::get('/profile', 'ProfileController@show');
+    // Route::get('/profile/{id}/edit', 'ProfileController@edit');
+    Route::get('/profile', 'ProfileController@edit');
+    Route::put('/profile/{id}', 'ProfileController@update');
 // p
 Auth::routes(); 
 
