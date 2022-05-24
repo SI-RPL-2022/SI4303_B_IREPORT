@@ -41,6 +41,11 @@
 
   </head>
   <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url({{ asset('image/bgIREPORT.png') }})">
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="{{ asset('logoIREPORT.png') }}" alt="Logo IREPORT" height="60" width="60">
+      {{-- template2/dist/img/AdminLTELogo.png --}}
+    </div>
+
     @include('partials.navbar')
     <div class="container" style="padding-top: 20px" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url('image/bgIREPORT.png')">
       @yield('konten')

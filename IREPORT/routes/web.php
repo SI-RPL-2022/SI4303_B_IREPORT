@@ -40,7 +40,7 @@ Route::get('about', function () {
 
 // admin
 Route::get('main', function () {
-    return view('layouts/admin');
+    return view('layouts/masterAdmin');
 });
 // berita
 // Route::get('createBerita', function () {
@@ -49,6 +49,8 @@ Route::get('main', function () {
 // Route::get('indexBerita', function () {
 //     return view('admin/berita/index');
 // });
+Route::get('/beritaAdmin', 'BeritaController@indexBerita');
+
 // Route::get('showBerita', function () {
 //     return view('admin/berita/show');
 // });
@@ -60,6 +62,7 @@ Route::get('main', function () {
 // Route::get('indexLaporan', function () {
 //     return view('admin/laporanUSer/index');
 // });
+Route::get('/laporanAdmin', 'LaporanController@indexAdmin');
 // Route::get('showLaporan', function () {
 //     return view('admin/laporanUSer/show');
 // });

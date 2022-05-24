@@ -1,4 +1,7 @@
-index laporan
+@extends('layouts.masterAdmin')
+
+@section('isi')
+
 
 <div class="container">
     <table class="table table-bordered">
@@ -42,3 +45,5 @@ index laporan
         </tbody>
     </table>
 </div>
+
+@endsection
