@@ -67,6 +67,17 @@ class LaporanController extends Controller
         return view('user.home_', compact('tampil'));
     }
 
+    public function indexAdmin(Request $request)
+    {
+        // $tampil = DB::table('laporan')->get();
+        if ($request->has('search')) {
+            $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
+        } else {
+            $tampil = DB::table('laporan')->get();
+        }
+        return view('admin.laporanUser.index', compact('tampil'));
+    }
+
 
     public function show($id)
     {
