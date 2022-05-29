@@ -36,7 +36,20 @@
             @enderror
             
             <div class="form-group pt-3">
-                <label>Lokasi</label>
+                <label>Provinsi</label>
+                <select class="form-select" aria-label="Default select example" name="provinsi">
+                    <option selected>Buka untuk memilih Provinsi</option>
+                    @foreach ($data as $item)
+                        <option value="{{ $item['name'] }}"> {{ $item['name']  }} </option>
+                    @endforeach
+                  </select>
+            </div>
+            @error('provinsi')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
+            <div class="form-group pt-3">
+                <label>Detail Lokasi</label>
                 <textarea name="lokasi" cols="30" rows="1" class="form-control"></textarea>
             </div>
             @error('lokasi')
@@ -64,6 +77,3 @@
             </div>
     </form>
 </div>
-
-
-@endsection
