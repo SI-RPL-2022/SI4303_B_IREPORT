@@ -8,9 +8,10 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Judul</th>
+                <th>Kategori</th>
                 <th>Tanggal</th>
-                <th>Lokasi</th>
+                <th>Provinsi</th>
+                <th>Detail Lokasi</th>
                 <th>Foto</th>
                 <th>Keterangan</th>
             </tr>
@@ -19,7 +20,8 @@
             @forelse ($tampil as $key => $item)
                 <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $item->judul }}</td>
+                    <td>{{ $item->kategori }}</td>
+                    <td>{{ $item->provinsi }}</td>
                     <td>{{ $item->tanggal }}</td>
                     <td>{{ $item->alamat }}</td>
                     <td>{{ $item->foto }}</td>

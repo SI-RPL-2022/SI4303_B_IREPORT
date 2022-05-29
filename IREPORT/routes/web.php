@@ -74,9 +74,14 @@ Route::get('/laporanAdmin', 'LaporanController@indexAdmin');
         Route::get('/laporan/{id}/edit', 'LaporanController@edit');
         Route::put('/laporan/{id}', 'LaporanController@update');
         Route::delete('/laporan/{id}', 'LaporanController@destroy');
+        Route::get('/laporan/create', 'ProvinsiController@provinsi');
+        // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
     });
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/{id}', 'LaporanController@show');
+    Route::get('/laporan_/{provinsi}', 'LaporanController@showFilter');
+    Route::get('/laporan/create', 'ProvinsiController@provinsi');
+    // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
 
     // profile
     // Route::get('/profile', 'ProfileController@index');
