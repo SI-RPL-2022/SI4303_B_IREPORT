@@ -1,10 +1,27 @@
 @extends('layouts.master')
 @section('konten')
 
-<form class="form-inline" method="GET" action="/laporan" style="padding-bottom: 16px">
-    <input value="{{ request('search') }}" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" >Search</button>
-</form>
+<div class="row">
+    <div class="col">
+        <form class="form-inline" method="GET" action="/laporan" style="padding-bottom: 16px">
+            <input value="{{ request('search') }}" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" >Search</button>
+        </form>
+    </div>
+    <div class="col">
+        <div class="dropdown" style="padding-left: 600px">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                @foreach ($data as $item)
+                    <li><a class="dropdown-item" href="/laporan_/{{ $item['name'] }}">{{ $item['name'] }}</a></li>
+                @endforeach
+            </ul>
+          </div>    
+    </div>
+</div>
+
 
 @if (request('search')==true)
     <div>
@@ -26,10 +43,10 @@
             <div class="card">
                 <img class="card-img-top" src="{{ asset('image/'.$data->foto)}}" alt="..." />
                 <div class="card-body">
-                        <h4 class="fw-bolder">{{ $data->kategori }}</h4>
-                        <i class="fa fa-map-marker"></i> {{ $data->alamat }} <br>
-                        <i class="fa fa-book"></i> {{ Str::limit( $data->keterangan, 18) }} <br>
-                        <i class="fa fa-clock"></i> {{ $data->tanggal }}
+                        <h4 class="fw-bolder">{{ ' '.$data->kategori }}</h4>
+                        <i class="fa fa-map-marker"></i>{{ Str::limit(' '.$data->provinsi.', '.$data->alamat, 24) }} <br>
+                        <i class="fa fa-book"></i> {{ Str::limit( ' '.$data->keterangan, 18) }} <br>
+                        <i class="fa fa-clock"></i> {{ ' '.$data->tanggal }}
                         <br>
                         {{-- <i class="fa fa-sort-up"> </i> --}}
                         <button class="btn btn-primary"> <i class="fa fa-toggle-up"></i> </button>
@@ -55,4 +72,4 @@
     @endforelse
     {{-- {{ $tampil->links() }} --}}
 </div>
-@endsection 
+@endsection
