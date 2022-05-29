@@ -9,16 +9,20 @@
         </form>
     </div>
     <div class="col">
-        <div class="dropdown" style="padding-left: 600px">
+        <div style="padding-left: 440px">
+            <a class="btn btn-outline-warning" role="button" href="/laporan" >Hapus filter</a>
+        </div>
+        
+        {{-- <div class="dropdown" style="padding-left: 600px">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filter
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 @foreach ($data as $item)
-                    <li><a class="dropdown-item" href="/laporan_/{{ $item['name'] }}">{{ $item['name'] }}</a></li>
+                    <li><a class="dropdown-item" href="#">{{ $item['name'] }}</a></li>
                 @endforeach
             </ul>
-          </div>    
+          </div>     --}}
     </div>
 </div>
 

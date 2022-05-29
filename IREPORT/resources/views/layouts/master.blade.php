@@ -59,7 +59,7 @@
     <!-- Vendor JS Files -->
     <script src="{{ asset('template/assets/vendor/purecounter/purecounter.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
     <script src="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/php-email-form/validate.js') }}"></script>
     

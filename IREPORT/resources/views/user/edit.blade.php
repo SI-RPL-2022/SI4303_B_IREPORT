@@ -2,7 +2,6 @@
 
 @section('konten') 
 
-
     <div class="container" style="background-color: white; margin-bottom: 150px; border-radius: 12px">
         <form action="/laporan/{{ $edit_->id }}" method="POST" style="border-radius: 12px; padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
             @csrf
@@ -26,44 +25,57 @@
                     <option value="Gorong-gorong">Gorong-gorong</option>
                   </select>
             </div>
-            @error('kategori')
+            {{-- @error('kategori')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror --}}
             
             <div class="form-group pt-3">
                 <label >Tanggal</label>
                 <input type="date" class="form-control" name="tanggal" placeholder="Masukkan waktu pembuatan laporan" value="{{ $edit_->tanggal }}">
             </div>
-            @error('tanggal')
+            {{-- @error('tanggal')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror --}}
             
             <div class="form-group pt-3">
-                <label>Lokasi</label>
+                <label>Provinsi</label>
+                <select class="form-select" aria-label="Default select example" name="provinsi">
+                    <option selected>Buka untuk memilih Provinsi</option>
+                    @foreach ($data as $item)
+                        <option value="{{ $item['name'] }}"> {{ $item['name']  }} </option>
+                    @endforeach
+                  </select>
+            </div>
+            {{-- @error('provinsi')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror --}}
+
+            <div class="form-group pt-3">
+                <label>Detail Lokasi</label>
                 <textarea name="lokasi" cols="30" rows="1" class="form-control">{{ $edit_->alamat }}</textarea>
             </div>
-            @error('lokasi')
+            {{-- @error('lokasi')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror --}}
             
             <div class="form-group pt-3">
                 <label>Foto</label>
                 <input type="file" class="form-control" name="fotoLokasi" value="{{ $edit_->foto }}">
             </div>
-            @error('fotoLokasi')
+            {{-- @error('fotoLokasi')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror --}}
     
             <div class="form-group pt-3">
                 <label>Keterangan</label>
                 <textarea name="keterangan" cols="30" rows="6" class="form-control">{{ $edit_->keterangan }}</textarea>
             </div>
-            @error('keterangan')
+            {{-- @error('keterangan')
                 <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            @enderror --}}
     
             <div class="form-group" style="padding-top: 20px">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>
