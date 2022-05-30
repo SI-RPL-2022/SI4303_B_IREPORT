@@ -42,6 +42,7 @@ Route::get('about', function () {
 Route::get('main', function () {
     return view('layouts/masterAdmin');
 });
+
 // berita
 // Route::get('createBerita', function () {
 //     return view('admin/berita/create');
@@ -50,7 +51,8 @@ Route::get('main', function () {
 //     return view('admin/berita/index');
 // });
 Route::get('/beritaAdmin', 'BeritaController@indexBerita');
-
+Route::get('/beritaAdmin/inputPage', 'BeritaController@inputPage');
+Route::post('/beritaAdmin', 'BeritaController@inputData');
 // Route::get('showBerita', function () {
 //     return view('admin/berita/show');
 // });
