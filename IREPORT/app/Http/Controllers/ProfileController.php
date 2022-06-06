@@ -48,7 +48,6 @@ class ProfileController extends Controller
         }
 
         $edit-> update([
-            // "judul" => $request["judul"],
             "nama" => $request["nama"],
             "alamat" => $request["alamat"],
             "tempatLahir" => $request["tempatLahir"],
@@ -63,5 +62,13 @@ class ProfileController extends Controller
         $detail = DB::table('profile')->where('id', $id)->first();
         // $detail = DB::table('laporan')->where('id', $id);
         return view('user.profile_', compact('detail'));
+    }
+
+    public function showAdmin()
+    {
+        // $detail = DB::table('profile')->where('id', $id)->first();
+        $data = Profile::where('user_id', Auth::id())->first();
+        // return view('layouts.masterAdmin', compact('data'));
+        return view('admin.main', compact('data'));
     }
 }

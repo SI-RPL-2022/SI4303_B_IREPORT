@@ -1,7 +1,7 @@
 @extends('layouts.masterAdmin')
 
 @section('isi')
-    
+         
 <form action="/beritaAdmin" method="POST" style="padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
