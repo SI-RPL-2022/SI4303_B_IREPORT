@@ -42,7 +42,7 @@
                 <select class="form-select" aria-label="Default select example" name="provinsi">
                     <option selected>Buka untuk memilih Provinsi</option>
                     @foreach ($data as $item)
-                        <option value="{{ $item['name'] }}"> {{ $item['name']  }} </option>
+                        <option value="{{ $edit_->provinsi }}"> {{ $item['name']  }} </option>
                     @endforeach
                   </select>
             </div>
