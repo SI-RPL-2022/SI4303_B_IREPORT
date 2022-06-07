@@ -40,7 +40,7 @@
                         <form action="/beritaAdmin/{{$item->id}}" method="POST">
                             @csrf
                             @method('delete')
-                            <a href="/beritaAdmin/{{ $item->id }}" class="btn btn-info btn-sm">Detail</a>
+                            {{-- <a href="/beritaAdmin/{{ $item->id }}" class="btn btn-info btn-sm">Detail</a> --}}
                             <a href="/beritaAdmin/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                             <input type="submit" class="btn btn-danger btn-sm" value="Delete"></input>
                         </form>

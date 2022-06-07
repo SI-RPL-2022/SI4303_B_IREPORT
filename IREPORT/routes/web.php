@@ -63,6 +63,7 @@ Route::middleware(['role:1'])->group(function () {
     Route::post('/beritaAdmin', 'BeritaController@inputData');
     Route::get('/beritaAdmin/{id}/edit', 'BeritaController@editPage');
     Route::put('/beritaAdmin/{id}', 'BeritaController@editData');
+    Route::delete('/beritaAdmin/{id}', 'BeritaController@delete');
 
     //laporan
     Route::get('/laporanAdmin', 'LaporanController@indexAdmin');
