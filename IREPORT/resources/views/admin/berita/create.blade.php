@@ -1,8 +1,16 @@
 @extends('layouts.masterAdmin')
 
+@section('nav samping')
+@include('partials.navberita')
+@endsection
+
+@section('judul_dashboard')
+    Create Berita
+@endsection
+
 @section('isi')
-         
-<form action="/beritaAdmin" method="POST" style="padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
+<div class="container">
+    <form action="/beritaAdmin" method="POST" style="padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
     @csrf
         <div class="form-group">
             <label>Judul</label>
@@ -47,6 +55,6 @@
         <div class="form-group" style="padding-top: 20px">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-</form>
-
+    </form>
+</div> 
 @endsection

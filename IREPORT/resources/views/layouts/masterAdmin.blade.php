@@ -32,10 +32,7 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ asset('logoIREPORT.png') }}" alt="Logo IREPORT" height="60" width="60">
-    
-  </div> 
+  @yield('preloader') 
   {{-- template2/dist/img/AdminLTELogo.png --}}
 
   <!-- Navbar -->
@@ -46,7 +43,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #004272">
     {{-- sidebar-dark-primary elevation-4--}}
     <!-- Brand Logo -->
-    <a href="{{ 'about' }}" class="brand-link">
+    <a href="/terminal" class="brand-link">
       <img src="{{ asset('logoIREPORT.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light" style="color: white; font-family: poppins; font-size: 14px">Admin IREPORT</span>
     </a>
@@ -121,7 +118,9 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">
+              @yield('judul_dashboard')
+            </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

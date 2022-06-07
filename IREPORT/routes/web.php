@@ -53,18 +53,41 @@ Route::middleware(['role:1'])->group(function () {
     //     return view('admin/main');
     // });
     
-    Route::get('/main', 'ProfileController@showAdmin');
-    // Route::get('/terminal', 'ProfileController@showAdmin4');
-    Route::get('/beritaAdmin', 'ProfileController@showAdmin2');
-    Route::get('/laporanAdmin', 'ProfileController@showAdmin3');
+    // Route::get('/beritaAdmin/inputPage', 'ProfileController@showAdmin');
+    // Route::get('/beritaAdmin', 'ProfileController@showAdmin2');
+    // Route::get('/laporanAdmin', 'ProfileController@showAdmin3');
     //berita
     Route::get('/beritaAdmin', 'BeritaController@indexBerita');
-    Route::get('/beritaAdmin/inputPage', 'BeritaController@inputPage');
+    Route::get('/beritaAdmin_', 'BeritaController@inputPage');
+    // Route::get('/beritaAdmin/inputPage', 'ProfileController@showInCreateBerita');
     Route::post('/beritaAdmin', 'BeritaController@inputData');
+    Route::get('/beritaAdmin/{id}/edit', 'BeritaController@editPage');
+    Route::put('/beritaAdmin/{id}', 'BeritaController@editData');
 
     //laporan
     Route::get('/laporanAdmin', 'LaporanController@indexAdmin');
 });
+
+    Route::middleware(['role:2'])->group(function () {
+        Route::get('/laporan/create', 'LaporanController@create');
+        Route::post('/laporan', 'LaporanController@inputData');
+        Route::get('/laporan/{id}/edit', 'LaporanController@edit');
+        Route::put('/laporan/{id}', 'LaporanController@update');
+        Route::delete('/laporan/{id}', 'LaporanController@destroy');
+        Route::get('/laporan/create', 'ProvinsiController@provinsi');
+    });
+
+
+    // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
+
+    // profile
+    // Route::get('/profile', 'ProfileController@index');
+    // Route::get('/profile', 'ProfileController@show');
+    // Route::get('/profile/{id}/edit', 'ProfileController@edit');
+    Route::get('/profile', 'ProfileController@edit');
+    Route::put('/profile/{id}', 'ProfileController@update');
+// p
+
 
 // berita
 // Route::get('createBerita', function () {
@@ -98,26 +121,3 @@ Route::middleware(['role:1'])->group(function () {
     //     Route::delete('/laporan/{id}', 'LaporanController@destroy');
     //     Route::get('/laporan/create', 'ProvinsiController@provinsi');
     // });
-
-    Route::middleware(['role:2'])->group(function () {
-        Route::get('/laporan/create', 'LaporanController@create');
-        Route::post('/laporan', 'LaporanController@inputData');
-        Route::get('/laporan/{id}/edit', 'LaporanController@edit');
-        Route::put('/laporan/{id}', 'LaporanController@update');
-        Route::delete('/laporan/{id}', 'LaporanController@destroy');
-        Route::get('/laporan/create', 'ProvinsiController@provinsi');
-    });
-
-
-    // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
-
-    // profile
-    // Route::get('/profile', 'ProfileController@index');
-    // Route::get('/profile', 'ProfileController@show');
-    // Route::get('/profile/{id}/edit', 'ProfileController@edit');
-    Route::get('/profile', 'ProfileController@edit');
-    Route::put('/profile/{id}', 'ProfileController@update');
-// p
-
-
-// Route::get('/home', 'HomeController@index')->name('home');

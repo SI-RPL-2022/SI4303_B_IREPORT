@@ -69,6 +69,14 @@ class ProfileController extends Controller
         // $detail = DB::table('profile')->where('id', $id)->first();
         $data = Profile::where('user_id', Auth::id())->first();
         // return view('layouts.masterAdmin', compact('data'));
-        return view('admin.main', compact('data'));
+        return view('layouts.masterAdmin', compact('data'));
     }
+
+    // public function showInCreateBerita()
+    // {
+    //     // $detail = DB::table('profile')->where('id', $id)->first();
+    //     $data = Profile::where('user_id', Auth::id())->first();
+    //     // return view('layouts.masterAdmin', compact('data'));
+    //     return view('admin.berita.create', compact('data'));
+    // }
 }
