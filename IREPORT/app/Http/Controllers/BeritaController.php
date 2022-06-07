@@ -98,4 +98,10 @@ class BeritaController extends Controller
         // dd($edit);
         return redirect('/beritaAdmin');
     }
+
+    public function delete($id)
+    {
+        $query = DB::table('berita')->where('id', $id)->delete();
+        return redirect('/beritaAdmin');
+    }
 }
