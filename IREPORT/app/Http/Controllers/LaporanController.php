@@ -3,12 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Laporan;
+use App\User;
+use App\Profile;
 use GuzzleHttp\Client;
 
 class LaporanController extends Controller
 {
+    public function index(Request $request)
+    {
+        // $tampil = DB::table('laporan')->get();
+        if ($request->has('search')) {
+            $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
+        } else {
+            $tampil = Laporan::all();
+            // where('laporan')->get()
+            $client = New Client();
+            $res = $client->request('GET', 'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json', ['verify' => false]);
+            $statuscode=$res->getStatusCode();
+            $body=$res->getBody();
+    
+            $data=json_decode($body, true);
+        }
+        return view('user.home_', compact('tampil', 'data'));
+    }
+
+    public function showFilter($provinsi)
+    {
+        $tampil = DB::table('laporan')->where('provinsi', $provinsi)->get();
+        // $detail = DB::table('laporan')->where('id', $id);
+        return view('user.filter', compact('tampil'));
+    }
+
     public function create(){
         return view ('user.input');
     }
@@ -60,33 +88,17 @@ class LaporanController extends Controller
     //     return view('user.home_', compact('tampil'));
     // }
 
-    public function index(Request $request)
-    {
-        // $tampil = DB::table('laporan')->get();
-        if ($request->has('search')) {
-            $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
-        } else {
-            $tampil = Laporan::all();
-            // where('laporan')->get()
-            $client = New Client();
-            $res = $client->request('GET', 'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json', ['verify' => false]);
-            $statuscode=$res->getStatusCode();
-            $body=$res->getBody();
-    
-            $data=json_decode($body, true);
-        }
-        return view('user.home_', compact('tampil', 'data'));
-    }
-
     public function indexAdmin(Request $request)
     {
         // $tampil = DB::table('laporan')->get();
         if ($request->has('search')) {
             $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
+            $data = Profile::where('user_id', Auth::id())->first();
         } else {
             $tampil = DB::table('laporan')->get();
+            $data = Profile::where('user_id', Auth::id())->first();
         }
-        return view('admin.laporanUser.index', compact('tampil'));
+        return view('admin.laporanUser.index', compact('tampil', 'data'));
     }
 
 
@@ -95,13 +107,6 @@ class LaporanController extends Controller
         $detail = DB::table('laporan')->where('id', $id)->first();
         // $detail = DB::table('laporan')->where('id', $id);
         return view('user.detail', compact('detail'));
-    }
-
-    public function showFilter($provinsi)
-    {
-        $tampil = DB::table('laporan')->where('provinsi', $provinsi)->get();
-        // $detail = DB::table('laporan')->where('id', $id);
-        return view('user.filter', compact('tampil'));
     }
 
     public function edit($id)
@@ -135,8 +140,10 @@ class LaporanController extends Controller
             'keterangan'  => 'Harus diisi'
         ]);
         $edit=Laporan::find($id);
+        
         if ($request->fotoLokasi=="") {
-            $filename=$edit->fotoLokasi;
+            $filename=$edit->foto;
+            // $edit->foto=$request["fotoLokasi"] ? $request["fotoLokasi"] :  $edit->foto;
         }else{
             $fileName=time().'.'.$request->fotoLokasi->extension();
             $request->fotoLokasi->move(public_path("image"), $fileName);
@@ -160,6 +167,7 @@ class LaporanController extends Controller
         //     "foto" => $request["fotoLokasi"],
         //     "keterangan" => $request["keterangan"],
         // ]);
+        // dd($edit);
         return redirect('/laporan');
     }
 
@@ -169,14 +177,4 @@ class LaporanController extends Controller
         $query = DB::table('laporan')->where('id', $id)->delete();
         return redirect('/laporan');
     }
-
-    // public function provinsi(){
-    //     $client = New Client();
-    //     $res = $client->request('GET', 'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
-    //     $statuscode=$res-> getStatusCode();
-    //     $body=$res->getBody()-> gatContent();
-
-    //     $data=json_decode($body, true);
-    //     return view('user.input', compact('data'));
-    // }
 }
