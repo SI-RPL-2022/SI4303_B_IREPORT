@@ -1,5 +1,11 @@
 @extends('layouts.masterAdmin')
 
+@section('preloader')
+<div class="preloader flex-column justify-content-center align-items-center">
+  <img class="animation__shake" src="{{ asset('logoIREPORT.png') }}" alt="Logo IREPORT" height="60" width="60">
+</div>
+@endsection
+
 @section('nav samping')
   <li class="nav-item">
       <a href="#" class="nav-link">
