@@ -58,4 +58,3 @@
     </div>
 </form>
 @endsection
-show berita 
