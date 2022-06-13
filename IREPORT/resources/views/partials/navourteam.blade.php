@@ -14,13 +14,13 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/beritaAdmin" class="nav-link active">
+        <a href="/beritaAdmin" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Berita</p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="/ourteam" class="nav-link">
+        <a href="/ourteam" class="nav-link active">
           <i class="far fa-circle nav-icon"></i>
           <p>Our Team</p>
         </a>

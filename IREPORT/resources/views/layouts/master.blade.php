@@ -47,6 +47,7 @@
     </div>
 
     @include('partials.navbar')
+    
     <div class="container" style="padding-top: 20px" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url('image/bgIREPORT.png')">
       @yield('konten')
     </div>

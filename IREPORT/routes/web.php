@@ -13,7 +13,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('pp', function () {
@@ -23,6 +23,8 @@ Route::get('pp', function () {
 Route::get('about', function () {
     return view('about');
 });
+
+Route::get('/our_team', 'OurteamController@OurteamUser');
 // user
 // Route::get('detail', function () {
 //     return view('user/detail');
@@ -67,16 +69,25 @@ Route::middleware(['role:1'])->group(function () {
 
     //laporan
     Route::get('/laporanAdmin', 'LaporanController@indexAdmin');
+
+    //OurTeam
+    Route::get('/ourteam', 'OurteamController@indexOurteam');
+    Route::get('/ourteam_', 'OurteamController@inputPage');
+    Route::post('/ourteam', 'OurteamController@inputData');
+    Route::get('/ourteam/{id}/edit', 'OurteamController@editPage');
+    Route::put('/ourteam/{id}', 'OurteamController@editData');
+    Route::delete('/ourteam/{id}', 'OurteamController@delete');
 });
 
-    Route::middleware(['role:2'])->group(function () {
-        Route::get('/laporan/create', 'LaporanController@create');
-        Route::post('/laporan', 'LaporanController@inputData');
-        Route::get('/laporan/{id}/edit', 'LaporanController@edit');
-        Route::put('/laporan/{id}', 'LaporanController@update');
-        Route::delete('/laporan/{id}', 'LaporanController@destroy');
-        Route::get('/laporan/create', 'ProvinsiController@provinsi');
-    });
+
+Route::middleware(['role:2'])->group(function () {
+    Route::get('/laporan/create', 'LaporanController@create');
+    Route::post('/laporan', 'LaporanController@inputData');
+    Route::get('/laporan/{id}/edit', 'LaporanController@edit');
+    Route::put('/laporan/{id}', 'LaporanController@update');
+    Route::delete('/laporan/{id}', 'LaporanController@destroy');
+    Route::get('/laporan/create', 'ProvinsiController@provinsi');
+});
 
 
     // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
