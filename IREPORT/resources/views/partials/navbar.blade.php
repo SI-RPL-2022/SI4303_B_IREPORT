@@ -7,11 +7,13 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/laporan" style="color: rgb(0, 90, 163); font-family: poppins">Home</a></li>
-                <li class="nav-item"> <a class="nav-link" aria-current="page" href="/about" style="color: rgb(0, 90, 163); font-family: poppins">About</a></li>
+                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="/laporan" style="color: rgb(0, 90, 163); font-family: poppins">HOME</a></li>
+                <li class="nav-item"> <a class="nav-link" aria-current="page" href="/about" style="color: rgb(0, 90, 163); font-family: poppins">ABOUT</a></li>
+                <li class="nav-item"> <a class="nav-link" aria-current="page" href="/berita_user" style="color: rgb(0, 90, 163); font-family: poppins">BERITA</a></li>
+                <li class="nav-item"> <a class="nav-link" aria-current="page" href="/our_team" style="color: rgb(0, 90, 163); font-family: poppins">OUR TEAM</a></li>
                 <li class="nav-item"> 
-                    <a href="/laporan/create" style="text-decoration: none">
-                        <button  class="btn btn-outline-light" style="background-color: rgb(17, 169, 240); border-radius: 4px; padding:8px; font-size:10px">
+                    <a href="/createLaporan" style="text-decoration: none">
+                        <button  class="btn btn-outline-light" style="background-color: rgb(17, 169, 240); border-radius: 4px; padding:8px; font-size:14px">
                             Tambah Laporan
                         </button>
                     </a>

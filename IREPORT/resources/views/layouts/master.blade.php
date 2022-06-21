@@ -14,12 +14,12 @@
 
         <link rel = "icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel = "shortcut icon" type = "image/png" href = "{{ asset('logoIREPORT.png') }}">
-        {{-- <link rel = "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> --}}
+        <link rel = "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link href = "{{ asset('template/assets/css/style.css') }}" rel="stylesheet" />
 
         <!-- Favicons -->
-        {{-- <link href="{{ asset('template/assets/img/favicon.png') }}" rel="icon"> --}}
-        {{-- <link href="{{ asset('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
+        {{-- <link href="{{ asset('template/assets/img/favicon.png') }}" rel="icon">
+        <link href="{{ asset('template/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -40,26 +40,27 @@
         <link rel="stylesheet" href="{{ asset('template2/dist/css/adminlte.min.css') }}">
 
   </head>
+
   <body style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url({{ asset('image/bgIREPORT.png') }})">
+    
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="{{ asset('logoIREPORT.png') }}" alt="Logo IREPORT" height="60" width="60">
-      {{-- template2/dist/img/AdminLTELogo.png --}}
     </div>
 
     @include('partials.navbar')
-    <div class="container" style="padding-top: 20px" style="background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) ,url('image/bgIREPORT.png')">
+    
+    <div class="container" style="padding-top: 20px">
       @yield('konten')
     </div>
-    
 
     @include('partials.footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> --}}
     
     <!-- Vendor JS Files -->
     <script src="{{ asset('template/assets/vendor/purecounter/purecounter.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/aos/aos.js') }}"></script>
-    {{-- <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
+    <script src="{{ asset('template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('template/assets/vendor/php-email-form/validate.js') }}"></script>
     
@@ -78,4 +79,3 @@
     <script src="{{ asset('template2/dist/js/demo.js') }}"></script>
   </body>
 </html> 
-{{-- Tes --}}

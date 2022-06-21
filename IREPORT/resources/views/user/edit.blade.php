@@ -39,8 +39,8 @@
             
             <div class="form-group pt-3">
                 <label>Provinsi</label>
-                <select class="form-select" aria-label="Default select example" name="provinsi">
-                    <option selected>Buka untuk memilih Provinsi</option>
+                <select class="form-select" aria-label="Default select example" name="provinsi" placeholder="Buka untuk memilih provinsi">
+                    <option selected value="{{ $edit_->provinsi }}">Buka untuk memilih Provinsi</option>
                     @foreach ($data as $item)
                         <option value="{{ $item['name'] }}"> {{ $item['name']  }} </option>
                     @endforeach

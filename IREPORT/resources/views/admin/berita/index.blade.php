@@ -1,97 +1,51 @@
 @extends('layouts.masterAdmin')
 
+@section('preloader')
+<div class="preloader flex-column justify-content-center align-items-center">
+  <img class="animation__shake" src="{{ asset('logoIREPORT.png') }}" alt="Logo IREPORT" height="60" width="60">
+</div>
+@endsection
+
+@section('nav samping')
+@include('partials.navberita')
+@endsection
+
+@section('judul_dashboard')
+    Dashboard Berita
+@endsection
+
 @section('isi')
-
 <!-- Small boxes (Stat box) -->
-<div class="row">
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h3>150</h3>
-
-          <p>New Orders</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-bag"></i>
-        </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-success">
-        <div class="inner">
-          <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-          <p>Bounce Rate</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-stats-bars"></i>
-        </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-warning">
-        <div class="inner">
-          <h3>44</h3>
-
-          <p>User Registrations</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-person-add"></i>
-        </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-3 col-6">
-      <!-- small box -->
-      <div class="small-box bg-danger">
-        <div class="inner">
-          <h3>65</h3>
-
-          <p>Unique Visitors</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-pie-graph"></i>
-        </div>
-        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-  </div>
-
 <div class="container">
     <div style="padding-bottom: 10px">
-        <a href="/beritaAdmin/inputPage" class="btn btn-info btn-sm">Buat Berita</a>
+        <a href="/beritaAdmin_" class="btn btn-info btn-sm">Buat Berita</a>
     </div>
     
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>No</th>
+                <th>Tanggal</th>
                 <th>Judul Berita</th>
                 <th>Deskripsi</th>
                 <th>Foto</th>
+                <th>Sumber</th>
+                <th>Edit/Delete Data</th>
         </thead>
         <tbody>
             @forelse ($tampil as $key => $item)
                 <tr>
                     <td>{{ $key+1 }}</td>
+                    <td>{{ $item->tgl}}</td>
                     <td>{{ $item->judul_berita}}</td>
-                    <td>{{ $item->deskripsi }}</td>
+                    <td>{{ Str::limit(' '.$item->deskripsi, 70) }} </td>
                     <td>{{ $item->foto }}</td>
+                    <td>{{ $item->sumber}}</td>
                     <td>
-                        <form action="/laporan/{{$item->id}}" method="POST">
+                        <form action="/beritaAdmin/{{$item->id}}" method="POST">
                             @csrf
                             @method('delete')
-                            <a href="/laporan/{{ $item->id }}" class="btn btn-info btn-sm">Detail</a>
-                            <a href="/laporan/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/beritaAdmin/{{ $item->id }}/edit" class="btn btn-warning btn-sm" style="margin-bottom: 4px">Edit</a>
                             <input type="submit" class="btn btn-danger btn-sm" value="Delete"></input>
                         </form>
                     </td>
@@ -99,7 +53,7 @@
             @empty
                 <tr>
                     <td colspan="5">
-                        <center>Silahkan tambahkan cast</center> 
+                        <center>Silahkan tambahkan berita</center> 
                     </td>
                 </tr>
             @endforelse

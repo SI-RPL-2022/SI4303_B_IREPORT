@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('konten')
- 
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <div class="container" style="background-color: white; margin-bottom: 150px; border-radius: 12px">
     <form action="/laporan" method="POST" style="padding-bottom: 14px; padding-left: 14px; padding-right: 14px" enctype="multipart/form-data">
         @csrf
@@ -77,3 +78,4 @@
             </div>
     </form>
 </div>
+@endsection
