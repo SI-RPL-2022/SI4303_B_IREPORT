@@ -1277,6 +1277,13 @@ section {
     position: sticky;
     height: 200px;
     width: 100%;
+    object-fit:cover;
+}
+.card-img-top-team {
+    position:sticky;
+    height: 200px;
+    width: 100%;
+    object-fit:cover;
 }
 
 #footer {

@@ -25,23 +25,27 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>Tanggal</th>
                 <th>Judul Berita</th>
                 <th>Deskripsi</th>
                 <th>Foto</th>
+                <th>Sumber</th>
+                <th>Edit/Delete Data</th>
         </thead>
         <tbody>
             @forelse ($tampil as $key => $item)
                 <tr>
                     <td>{{ $key+1 }}</td>
+                    <td>{{ $item->tgl}}</td>
                     <td>{{ $item->judul_berita}}</td>
                     <td>{{ Str::limit(' '.$item->deskripsi, 70) }} </td>
                     <td>{{ $item->foto }}</td>
+                    <td>{{ $item->sumber}}</td>
                     <td>
                         <form action="/beritaAdmin/{{$item->id}}" method="POST">
                             @csrf
                             @method('delete')
-                            {{-- <a href="/beritaAdmin/{{ $item->id }}" class="btn btn-info btn-sm">Detail</a> --}}
-                            <a href="/beritaAdmin/{{ $item->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/beritaAdmin/{{ $item->id }}/edit" class="btn btn-warning btn-sm" style="margin-bottom: 4px">Edit</a>
                             <input type="submit" class="btn btn-danger btn-sm" value="Delete"></input>
                         </form>
                     </td>
