@@ -12,16 +12,14 @@ class BeritaController extends Controller
 {
     public function indexBerita(Request $request)
     {
-        // $tampil = DB::table('laporan')->get();
-        // if ($request->has('search')) {
-        //     $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%') ->get();
-        // } else {
-        //     $tampil = DB::table('laporan')->get();
-        // }
-        // $tampil = DB::table('berita')->get();
         $data = Profile::where('user_id', Auth::id())->first();
         $tampil = Berita::all();
         return view('admin.berita.index', compact('tampil', 'data'));
+    }
+    public function indexBeritaUser(Request $request)
+    {
+        $tampil = Berita::all();
+        return view('user.berita.index', compact('tampil'));
     }
 
     public function inputPage(){
@@ -34,10 +32,14 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'fotoBerita' => 'required|image|mimes:jpeg,png,jpg,gif,svg'],
+            'tgl' => 'required',
+            'sumber' => 'required',
+            'fotoBerita' => 'required|image|mimes:jpeg,png,jpg,gif,svg, webp'],
         [
             'judul.required' => 'Harus diisi',
             'deskripsi.required'  => 'Harus diisi',
+            'tgl.required'  => 'Harus diisi',
+            'sumber.required'  => 'Harus diisi',
             'fotoBerita.required'  => 'Harus diisi'
         ]);
         
@@ -46,6 +48,8 @@ class BeritaController extends Controller
 
         $databerita = new Berita;
         $databerita->judul_berita=$request["judul"];
+        $databerita->tgl=$request["tgl"];
+        $databerita->sumber=$request["sumber"];
         $databerita->deskripsi=$request["deskripsi"];
         $databerita->foto=$fileName;
         // $databerita->user_id='0';
@@ -64,9 +68,13 @@ class BeritaController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'fotoBerita' => 'required|image|mimes:jpeg,png,jpg,gif,svg'],
+            'tgl' => 'required',
+            'sumber' => 'required',
+            'fotoBerita' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp'],
         [
             'judul.required' => 'Harus diisi',
+            'tgl.required'  => 'Harus diisi',
+            'sumber.required'  => 'Harus diisi',
             'deskripsi.required'  => 'Harus diisi',
             'fotoBerita.required'  => 'Harus diisi'
         ]);
@@ -83,6 +91,8 @@ class BeritaController extends Controller
         $edit-> update([
             "judul_berita" => $request["judul"],
             "deskripsi" => $request["deskripsi"],
+            "tgl" => $request["tgl"],
+            "sumber" => $request["sumber"],
             "foto" => $fileName
         ]);
         // $query = DB::table('laporan')

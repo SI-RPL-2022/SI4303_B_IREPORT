@@ -18,7 +18,7 @@ class OurteamController extends Controller
     public function OurteamUser()
     {
         $tampil = Ourteam::all();
-        return view('user.index', compact('tampil'));
+        return view('user.ourteam.index', compact('tampil'));
     }
 
     public function inputPage(){
@@ -29,7 +29,7 @@ class OurteamController extends Controller
         $request->validate([
             'nama' => 'required',
             'quote' => 'required',
-            'fotoTim' => 'required|image|mimes:jpeg,png,jpg,gif,svg'],
+            'fotoTim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max: 10000'], //
         [
             'nama.required' => 'Harus diisi',
             'quote.required'  => 'Harus diisi',
@@ -58,7 +58,7 @@ class OurteamController extends Controller
         $request->validate([
             'nama' => 'required',
             'quote' => 'required',
-            'fotoTim' => 'required|image|mimes:jpeg,png,jpg,gif,svg'],
+            'fotoTim' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max: 10000'], //5MB|
         [
             'nama.required' => 'Harus diisi',
             'quote.required'  => 'Harus diisi',
@@ -66,26 +66,26 @@ class OurteamController extends Controller
         ]);
         $edit=Ourteam::find($id);
         
-        // if ($request->fotoTim=="") {
-        //     $filename=$edit->fotoTim;
-        //     $edit->foto=$request->fotoTim ? $request->foto :  $edit->foto;
-        // }else{
+        if ($request->fotoTim=="") {
+            $filename=$edit->fotoTim;
+            // $edit->foto=$request->fotoTim ? $request->foto :  $edit->foto;
+        }else{
             $fileName=time().'.'.$request->fotoTim->extension();
             $request->fotoTim->move(public_path("image"), $fileName);
-        // }
-
-        // $edit-> update([
-        //     "nama" => $request["nama"],
-        //     "quote" => $request["quote"],
-        //     "foto" => $fileName
-        // ]);
-
-        if ($edit) {
-            $edit->nama=$request["nama"] ? $request["nama"] : $edit->nama;
-            $edit->quote=$request["quote"] ? $request["quote"] : $edit->quote;
-            $edit->foto=$fileName ? $fileName : $edit->foto;
-            $edit->save();
         }
+
+        $edit-> update([
+            "nama" => $request["nama"],
+            "quote" => $request["quote"],
+            "foto" => $fileName
+        ]);
+
+        // if ($edit) {
+            // $edit->nama=$request["nama"] ? $request["nama"] : $edit->nama;
+            // $edit->quote=$request["quote"] ? $request["quote"] : $edit->quote;
+            // $edit->foto=$fileName ? $fileName : $edit->foto;
+            // $edit->save();
+        // }
         return redirect('/ourteam');
     }
 

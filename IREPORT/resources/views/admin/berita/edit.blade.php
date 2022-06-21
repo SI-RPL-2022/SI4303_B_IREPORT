@@ -21,13 +21,13 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     
-    {{-- <div class="form-group pt-3">
-        <label >Tanggal Laporan</label>
-        <input type="date" class="form-control" name="tanggal" placeholder="Masukkan waktu pembuatan laporan">
+    <div class="form-group pt-3">
+        <label >Tanggal Kejadian</label>
+        <input type="date" class="form-control" name="tgl" value="{{ $edit_->tgl}}">
     </div>
-    @error('tanggal')
+    @error('tgl')
         <div class="alert alert-danger">{{ $message }}</div>
-    @enderror --}}
+    @enderror
 
     <div class="form-group pt-3">
         <label>Deskripsi</label>
@@ -37,6 +37,14 @@
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     
+    <div class="form-group pt-3">
+        <label>Sumber</label>
+        <input type="text" class="form-control" name="sumber" value="{{ $edit_->sumber}}">
+    </div>
+    @error('sumber')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+
     <div class="form-group pt-3">
         <label>Foto</label>
         <input type="file" class="form-control" name="fotoBerita" value="{{ $edit_->foto }}">

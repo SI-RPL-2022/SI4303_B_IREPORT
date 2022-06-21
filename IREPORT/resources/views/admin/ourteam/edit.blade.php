@@ -31,7 +31,7 @@
     
     <div class="form-group pt-3">
         <label>Foto</label>
-        <input type="file" class="form-control" name="fotoTim" value="{{ $edit_->foto }}" placeholder="{{ $edit_->foto }}">
+        <input type="file" class="form-control" name="fotoTim" value="{{ $edit_->foto }}">
     </div>
     {{-- @error('fotoTim')
         <div class="alert alert-danger">{{ $message }}</div>

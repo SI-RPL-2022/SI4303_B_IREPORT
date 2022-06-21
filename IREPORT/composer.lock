@@ -365,6 +365,7 @@
         },
         {
             "name": "guzzlehttp/guzzle",
+<<<<<<< HEAD
             "version": "7.4.5",
             "source": {
                 "type": "git",
@@ -375,6 +376,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/guzzle/zipball/1dd98b0564cb3f6bd16ce683cb755f94c10fbd82",
                 "reference": "1dd98b0564cb3f6bd16ce683cb755f94c10fbd82",
+=======
+            "version": "7.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
+                "reference": "e3ff079b22820c2029d4c2a87796b6a0b8716ad8",
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
                 "shasum": ""
             },
             "require": {
@@ -469,7 +482,11 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/guzzle/guzzle/tree/7.4.5"
+=======
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.4"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
             },
             "funding": [
                 {
@@ -485,7 +502,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-06-20T22:16:13+00:00"
+=======
+            "time": "2022-06-09T21:39:15+00:00"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
         },
         {
             "name": "guzzlehttp/promises",
@@ -573,6 +594,7 @@
         },
         {
             "name": "guzzlehttp/psr7",
+<<<<<<< HEAD
             "version": "2.4.0",
             "source": {
                 "type": "git",
@@ -583,6 +605,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/psr7/zipball/13388f00956b1503577598873fffb5ae994b5737",
                 "reference": "13388f00956b1503577598873fffb5ae994b5737",
+=======
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/83260bb50b8fc753c72d14dc1621a2dac31877ee",
+                "reference": "83260bb50b8fc753c72d14dc1621a2dac31877ee",
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
                 "shasum": ""
             },
             "require": {
@@ -606,7 +640,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "2.4-dev"
+=======
+                    "dev-master": "2.3-dev"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
                 }
             },
             "autoload": {
@@ -668,7 +706,11 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/guzzle/psr7/tree/2.4.0"
+=======
+                "source": "https://github.com/guzzle/psr7/tree/2.3.0"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
             },
             "funding": [
                 {
@@ -684,7 +726,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-06-20T21:43:11+00:00"
+=======
+            "time": "2022-06-09T08:26:02+00:00"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
         },
         {
             "name": "laravel/framework",
@@ -6881,5 +6927,9 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
+<<<<<<< HEAD
     "plugin-api-version": "2.3.0"
+=======
+    "plugin-api-version": "2.2.0"
+>>>>>>> bf6e57562ea99db3f20f4f2278cf4bdaede7a513
 }

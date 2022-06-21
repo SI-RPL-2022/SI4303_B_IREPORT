@@ -46,7 +46,7 @@ Route::get('/laporan', 'LaporanController@index');
 Route::get('/laporan/{id}', 'LaporanController@show');
 Route::get('/laporan_/{provinsi}', 'LaporanController@showFilter');
 Route::get('/laporan/create', 'ProvinsiController@provinsi');
-
+Route::get('/berita_user', 'BeritaController@indexBeritaUser');
 
 // admin
 
@@ -81,12 +81,12 @@ Route::middleware(['role:1'])->group(function () {
 
 
 Route::middleware(['role:2'])->group(function () {
-    Route::get('/laporan/create', 'LaporanController@create');
+    Route::get('/createLaporan', 'LaporanController@create');
     Route::post('/laporan', 'LaporanController@inputData');
     Route::get('/laporan/{id}/edit', 'LaporanController@edit');
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
-    Route::get('/laporan/create', 'ProvinsiController@provinsi');
+    Route::get('/createLaporan', 'ProvinsiController@provinsi');
 });
 
 

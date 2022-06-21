@@ -91,7 +91,7 @@ class RegisterController extends Controller
             'tanggalLahir' => $data['tanggalLahir'],
             // 'foto' => $data['foto']->move(public_path("image"), time().'.'.$data['foto']->extension()),
             'foto' => 'noPP.jpg',
-            // 'point' => 0,
+            'point' => 0,
             'user_id' => $user->id
         ]);
 

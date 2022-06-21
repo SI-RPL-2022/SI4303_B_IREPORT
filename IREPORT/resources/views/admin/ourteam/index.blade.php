@@ -33,7 +33,7 @@
             @forelse ($tampil as $key => $item)
                 <tr>
                     <td>{{ $key+1 }}</td>
-                    <td>{{ $item->foto}}</td>
+                    <td>{{ $item->nama}}</td>
                     <td>{{ Str::limit(' '.$item->quote, 70) }} </td>
                     <td>{{ $item->foto }}</td>
                     <td>

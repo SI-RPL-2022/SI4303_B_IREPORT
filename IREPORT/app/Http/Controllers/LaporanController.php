@@ -42,6 +42,10 @@ class LaporanController extends Controller
     }
 
     public function inputData(Request $request){
+        // $user= User::find('id')->first();
+        $user = $_SESSION['user'];
+        $loggeduserid = $user['id'];
+
         $request->validate([
             'kategori' => 'required',
             'tanggal' => 'required',
@@ -68,6 +72,7 @@ class LaporanController extends Controller
         $dataLaporan->alamat=$request["lokasi"];
         $dataLaporan->foto=$fileName;
         $dataLaporan->keterangan=$request["keterangan"];
+        $dataLaporan->user_id=$loggeduserid;
         $dataLaporan->save ();
         return redirect('/laporan');
     }
