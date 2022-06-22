@@ -17,8 +17,12 @@ class BeritaController extends Controller
         return view('admin.berita.index', compact('tampil', 'data'));
     }
     public function indexBeritaUser(Request $request)
-    {
-        $tampil = Berita::all();
+    {   
+        if ($request->has('search')) {
+            $tampil = DB::table('berita')-> where('judul_berita','LIKE','%'.$request->search.'%') ->get();
+        } else {
+            $tampil = Berita::all();
+        }
         return view('user.berita.index', compact('tampil'));
     }
 
