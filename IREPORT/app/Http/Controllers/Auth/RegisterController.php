@@ -78,7 +78,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role'=> 2,
-            'point' => 0
         ]);
 
         // $fileName=time().'.'.$data->foto->extension();
@@ -89,7 +88,7 @@ class RegisterController extends Controller
             'alamat' => $data['alamat'], 
             'tempatLahir' => $data['tempatLahir'],
             'tanggalLahir' => $data['tanggalLahir'],
-            // 'foto' => $data['foto']->move(public_path("image"), time().'.'.$data['foto']->extension()),
+            'pengajuan' => '-',
             'foto' => 'noPP.jpg',
             'point' => 0,
             'user_id' => $user->id
