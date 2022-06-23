@@ -34,6 +34,12 @@
             <p>Our Team</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="/pengajuan" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Pengajuan Hapus Akun</p>
+          </a>
+        </li>
       </ul>
   </li>
 
