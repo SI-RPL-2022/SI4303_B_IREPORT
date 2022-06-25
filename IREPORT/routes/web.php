@@ -94,7 +94,7 @@ Route::middleware(['role:2'])->group(function () {
 
     // Route::get('/laporan/{id}/edit', 'ProvinsiController@provinsiEdit');
 
-    // profile
+    // profileroute
     // Route::get('/profile', 'ProfileController@index');
     // Route::get('/profile', 'ProfileController@show');
     // Route::get('/profile/{id}/edit', 'ProfileController@edit');
