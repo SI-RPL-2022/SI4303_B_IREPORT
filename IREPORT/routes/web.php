@@ -81,12 +81,13 @@ Route::middleware(['role:1'])->group(function () {
 
 
 Route::middleware(['role:2'])->group(function () {
-    Route::get('/createLaporan', 'LaporanController@create');
+    Route::get('/createLaporan', 'LaporanController@inputpage');
     Route::post('/laporan', 'LaporanController@inputData');
     Route::get('/laporan/{id}/edit', 'LaporanController@edit');
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
     Route::get('/createLaporan', 'ProvinsiController@provinsi');
+    Route::get('/myreport', 'LaporanController@indexmyreport');
 });
 
 
