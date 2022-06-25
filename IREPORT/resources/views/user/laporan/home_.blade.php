@@ -44,13 +44,12 @@
                 <img class="card-img-top" src="{{ asset('image/'.$data->foto)}}" alt="..." />
                 <div class="card-body">
                         <h4 class="fw-bolder">{{ ' '.$data->kategori }}</h4>
-                        <i class="fa fa-map-marker" style=""></i>{{ Str::limit(' '.$data->provinsi.', '.$data->alamat, 24) }} <br>
+
                         <i class="fa fa-book"></i> {{ Str::limit( ' '.$data->keterangan, 18) }} <br>
                         <i class="fa fa-clock"></i> {{ ' '.$data->tanggal }}
                         <br>
                         {{-- <i class="fa fa-sort-up"> </i> --}}
-                        <button class="btn btn-primary"> <i class="fa fa-toggle-up"></i> </button>
-                        <button class="btn btn-secondary"> <i class="fa fa-toggle-down"></i> </button> 123
+
 
                         
                     <form action="/laporan/{{$data->id}}" method="POST">

@@ -38,6 +38,7 @@ class LaporanController extends Controller
             $tampil = DB::table('laporan')->where('user_id', Auth::id())->get();
         }
         return view('user.laporan.myreport', compact('tampil'));
+
     }
 
     public function showFilter($provinsi)
