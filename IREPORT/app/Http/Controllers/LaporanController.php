@@ -40,6 +40,38 @@ class LaporanController extends Controller
         return view('user.laporan.myreport', compact('tampil'));
     }
 
+    public function upvote($id){
+        $tampil = Laporan::find($id);
+
+        if ($tampil->vote == null){
+            $tampil->vote = 1 ;
+            $tampil->update();
+        }else{
+            $vote = $tampil->vote;
+            $vote = $vote + 1;
+            $tampil->vote = $vote;
+            $tampil->update();
+        }
+
+        return redirect()->back();
+
+    }
+
+    public function downvote($id){
+        $tampil = Laporan::find($id);
+        if ($tampil->vote == null){
+            $tampil->vote =  0-1 ;
+            $tampil->update();
+        }else{
+            $vote = $tampil->vote;
+            $vote = $vote - 1;
+            $tampil->vote = $vote;
+            $tampil->update();
+        }
+
+        return redirect()->back();
+    }
+
     public function showFilter($provinsi)
     {
         $tampil = DB::table('laporan')->where('provinsi', $provinsi)->get();

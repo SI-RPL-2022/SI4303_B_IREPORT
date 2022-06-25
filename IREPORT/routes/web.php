@@ -47,7 +47,8 @@ Route::get('/laporan/{id}', 'LaporanController@show');
 Route::get('/laporan_/{provinsi}', 'LaporanController@showFilter');
 Route::get('/laporan/create', 'ProvinsiController@provinsi');
 Route::get('/berita_user', 'BeritaController@indexBeritaUser');
-
+Route::get('/laporanupvote/{id}', 'LaporanController@upvote');
+Route::get('/laporandownvote/{id}', 'LaporanController@downvote');
 // admin
 
 Route::middleware(['role:1'])->group(function () {
