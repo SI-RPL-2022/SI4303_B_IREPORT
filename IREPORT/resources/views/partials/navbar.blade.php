@@ -51,6 +51,9 @@
                         <a class="dropdown-item" href="/profile">Profile</a>
                     </li>
                     <li>
+                        <a class="dropdown-item" href="/myreport">My Report</a>
+                    </li>
+                    <li>
                         {{-- <a class="dropdown-item" href="{{ route('logout') }}" --}}
                         <a class="dropdown-item" href="/laporan"
                             onclick="event.preventDefault();
