@@ -3,12 +3,12 @@
 
 <div class="row">
     <div class="col">
-        <form class="form-inline" method="GET" action="/laporan" style="padding-bottom: 16px">
+        <form class="form-inline" method="GET" action="/myreport" style="padding-bottom: 16px">
             <input value="{{ request('search') }}" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" >Search</button>
         </form>
     </div>
-    <div class="col">
+    {{-- <div class="col">
         <div class="dropdown" style="padding-left: 600px">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Filter
@@ -19,13 +19,13 @@
                 @endforeach
             </ul>
           </div>    
-    </div>
+    </div> --}}
 </div>
 
 
 @if (request('search')==true)
     <div>
-        <a href="/laporan">
+        <a href="/myreport">
             <button class="btn btn-light my-2 my-sm-0" style="border-radius: 20px">
                 {{ request('search') }} <i class="fa fa-times-circle-o"></i>
             </button>
@@ -44,7 +44,7 @@
                 <img class="card-img-top" src="{{ asset('image/'.$data->foto)}}" alt="..." />
                 <div class="card-body">
                         <h4 class="fw-bolder">{{ ' '.$data->kategori }}</h4>
-                        <i class="fa fa-map-marker"></i>{{ Str::limit(' '.$data->provinsi.', '.$data->alamat, 24) }} <br>
+                        <i class="fa fa-map-marker" style=""></i>{{ Str::limit(' '.$data->provinsi.', '.$data->alamat, 24) }} <br>
                         <i class="fa fa-book"></i> {{ Str::limit( ' '.$data->keterangan, 18) }} <br>
                         <i class="fa fa-clock"></i> {{ ' '.$data->tanggal }}
                         <br>
@@ -72,4 +72,5 @@
     @endforelse
     {{-- {{ $tampil->links() }} --}}
 </div>
+
 @endsection

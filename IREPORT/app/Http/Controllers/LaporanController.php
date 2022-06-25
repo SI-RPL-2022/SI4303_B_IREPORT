@@ -27,24 +27,31 @@ class LaporanController extends Controller
     
             $data=json_decode($body, true);
         }
-        return view('user.home_', compact('tampil', 'data'));
+        return view('user.laporan.home_', compact('tampil', 'data'));
+    }
+
+    public function indexmyreport(Request $request)
+    {
+        if ($request->has('search')) {
+            $tampil = DB::table('laporan')-> where('kategori','LIKE','%'.$request->search.'%')->where('user_id', Auth::id())->get();
+        } else {
+            $tampil = DB::table('laporan')->where('user_id', Auth::id())->get();
+        }
+        return view('user.laporan.myreport', compact('tampil'));
     }
 
     public function showFilter($provinsi)
     {
         $tampil = DB::table('laporan')->where('provinsi', $provinsi)->get();
         // $detail = DB::table('laporan')->where('id', $id);
-        return view('user.filter', compact('tampil'));
+        return view('user.laporan.filter', compact('tampil'));
     }
 
     public function create(){
-        return view ('user.input');
+        return view('user.laporan.input');
     }
 
     public function inputData(Request $request){
-        // $user= User::find('id')->first();
-        $user = $_SESSION['user'];
-        $loggeduserid = $user['id'];
 
         $request->validate([
             'kategori' => 'required',
@@ -76,22 +83,6 @@ class LaporanController extends Controller
         $dataLaporan->save ();
         return redirect('/laporan');
     }
-        // $query = DB::table('laporan')->insert([
-        //     "judul" => $request["judul"],
-        //     "kategori" => $request["kategori"],
-        //     "tanggal" => $request["tanggal"],
-        //     "alamat" => $request["lokasi"],
-        //     "foto" => $request["fotoLokasi"],    
-        //     // "foto" => $fileName,
-        //     "keterangan" => $request["keterangan"],
-        // ]);
-
-
-    // public function index()
-    // {
-    //     $tampil = DB::table('laporan')->get();
-    //     return view('user.home_', compact('tampil'));
-    // }
 
     public function indexAdmin(Request $request)
     {
@@ -103,15 +94,16 @@ class LaporanController extends Controller
             $tampil = DB::table('laporan')->get();
             $data = Profile::where('user_id', Auth::id())->first();
         }
-        return view('admin.laporanUser.index', compact('tampil', 'data'));
+        return view('admin.laporanadmin.index', compact('tampil', 'data'));
     }
 
 
     public function show($id)
     {
         $detail = DB::table('laporan')->where('id', $id)->first();
-        // $detail = DB::table('laporan')->where('id', $id);
-        return view('user.detail', compact('detail'));
+        // $tampil = DB::table('laporan')->where('user_id', Auth::id())->get();
+        // $tampil = Laporan::all();
+        return view('user.laporan.detail', compact('detail'));
     }
 
     public function edit($id)
@@ -124,7 +116,7 @@ class LaporanController extends Controller
         $body=$res->getBody();
 
         $data=json_decode($body, true);
-        return view('user.edit', compact('edit_', 'data'));
+        return view('user.laporan.edit', compact('edit_', 'data'));
     }
 
     public function update($id, Request $request)

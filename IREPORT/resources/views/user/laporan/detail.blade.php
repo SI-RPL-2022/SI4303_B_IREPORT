@@ -8,6 +8,7 @@
                 <i class="fa fa-map-marker"></i> {{ $detail->alamat }} <br>
                 <i class="fa fa-book"></i> {{$detail->keterangan}} <br>
                 <i class="fa fa-clock"></i> {{ $detail->tanggal }}
+                @if ($detail->user_id == Auth::id())
                 <form action="/laporan/{{$detail->id}}" method="POST">
                     @csrf
                     @method('delete')
@@ -15,6 +16,7 @@
                     <a href="/laporan/{{ $detail->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                     <input type="submit" class="btn btn-danger btn-sm" value="Delete"></input>
                 </form>
+                @endif
         </div>
         {{-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
         </div> --}}
