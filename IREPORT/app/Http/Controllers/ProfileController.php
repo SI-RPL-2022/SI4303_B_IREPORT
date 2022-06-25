@@ -5,22 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Profile;
+use App\User;
 use DB;
 
 class ProfileController extends Controller
-{
-    // public function index()
-    // {
-    //     // return view ('user.profile_');
-    //     // dd($profile);
-    //     $tampil_ = DB::table('profile')->get();
-    //     return view('user.profile.index', compact('tampil_'));
-    // }
-
-    public function edit()
+{   
+    public function showAdmin()
     {
+        // $detail = DB::table('profile')->where('id', $id)->first();
+        $data = Profile::where('user_id', Auth::id())->first();
+        return view('layouts.masterAdmin', compact('data'));
+    }
+
+    public function editpage()
+    {   
+        
         $editProfile = Profile::where('user_id', Auth::id())->first();
-        return view ('user.profile_', compact('editProfile'));
+        return view ('user.profile.profile_', compact('editProfile'));
         // dd($profile);
     }
 
@@ -52,31 +53,61 @@ class ProfileController extends Controller
             "alamat" => $request["alamat"],
             "tempatLahir" => $request["tempatLahir"],
             "foto" => $fileName,
-            "tanggalLahir" => $request["tanggalLahir"],
+            "tanggalLahir" => $request["tanggalLahir"]
         ]);
         return redirect('/profile');
     }
 
-    public function show($id)
+    public function pengajuan($id, Request $request)
     {
-        $detail = DB::table('profile')->where('id', $id)->first();
-        // $detail = DB::table('laporan')->where('id', $id);
-        return view('user.profile_', compact('detail'));
+        // $editdata=User::find($id);
+        $editdata=Profile::find($id);
+        if ($editdata) {
+            $editdata->nama=$request["nama"] ? $request["nama"] : $editdata->nama;
+            $editdata->alamat=$request["alamat"] ? $request["alamat"] : $editdata->alamat;
+            $editdata->tempatLahir=$request["tempatLahir"] ? $request["tempatLahir"] : $editdata->tempatLahir;
+            $editdata->tanggalLahir=$editdata->tanggalLahir;
+            $editdata->pengajuan='Hapus akun ini';
+            $editdata->foto = $editdata->foto;
+            $editdata->save();
+        }
+        // if ($editdata) {
+        //     $editdata->pengajuan='Hapus akun ini';
+        //     $editdata->save();
+        // }
+        return redirect('/profile');
     }
 
-    public function showAdmin()
+    public function jadiadmin($user_id)
     {
-        // $detail = DB::table('profile')->where('id', $id)->first();
+        $editdata=User::find($user_id);
+        // if ($editdata) {
+        //     $editdata->nama=$request["nama"] ? $request["nama"] : $editdata->nama;
+        //     $editdata->alamat=$request["alamat"] ? $request["alamat"] : $editdata->alamat;
+        //     $editdata->tempatLahir=$request["tempatLahir"] ? $request["tempatLahir"] : $editdata->tempatLahir;
+        //     $editdata->tanggalLahir=$editdata->tanggalLahir;
+        //     $editdata->pengajuan='Hapus akun ini';
+        //     $editdata->foto = $editdata->foto;
+        //     $editdata->save();
+        // }
+        if ($editdata) {
+            $editdata->role=1;
+            $editdata->save();
+        }
+        return redirect('/pengajuan');
+    }
+
+    public function indexadmin()
+    {
         $data = Profile::where('user_id', Auth::id())->first();
-        // return view('layouts.masterAdmin', compact('data'));
-        return view('layouts.masterAdmin', compact('data'));
+        $tampil = Profile::all();
+        return view('admin.pengajuan.index', compact('tampil', 'data'));
     }
 
-    // public function showInCreateBerita()
-    // {
-    //     // $detail = DB::table('profile')->where('id', $id)->first();
-    //     $data = Profile::where('user_id', Auth::id())->first();
-    //     // return view('layouts.masterAdmin', compact('data'));
-    //     return view('admin.berita.create', compact('data'));
-    // }
+    public function delete($user_id)
+    {   
+        $query = DB::table('profile')->where('user_id', $user_id)->delete();
+        $query = DB::table('users')->where('id', $user_id)->delete();
+        return redirect('/pengajuan');
+    }
 }

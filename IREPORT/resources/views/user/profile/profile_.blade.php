@@ -141,12 +141,24 @@
                   </div>
                 </div> --}}
                 <div class="form-group row">
-                  <div class="offset-sm-2 col-sm-10">
+                  <div class="col offset-sm-2" style="padding-right:0">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
+
+                  
+                  
                 </div>
               </form>
-
+              <div class="col offset-sm-2" style="padding-left:2px;"> 
+                {{-- offset-sm-2 col-sm-10 --}}
+                <form action="/pengajuan/{{ $editProfile->id }}" method="POST" style="" enctype="multipart/form-data" class="form-horizontal">
+                  @csrf
+                  @method('put')
+                  {{-- <div class=""> --}}
+                    <button type="submit" class="btn btn-danger">Hapus Akun</button>
+                  {{-- </div> --}}
+                </form>
+              </div>
               {{-- <div class="tab-content">
                 <div class="tab-pane" id="settings">
                   <form action="/profile/{{ $editProfile->id }}" method="POST" style="" enctype="multipart/form-data" class="form-horizontal">

@@ -13,7 +13,7 @@ class ProvinsiController extends Controller
         $body=$res->getBody();
 
         $data=json_decode($body, true);
-        return view('user.input', compact('data'));
+        return view('user.laporan.input', compact('data'));
     }
 
     public function provinsiFilter1(){

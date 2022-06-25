@@ -47,6 +47,11 @@
   box-sizing: border-box;
 }
 
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -198,10 +203,7 @@ figure {
   margin: 0 0 1rem;
 }
 
-img {
-  vertical-align: middle;
-  border-style: none;
-}
+
 
 svg {
   overflow: hidden;

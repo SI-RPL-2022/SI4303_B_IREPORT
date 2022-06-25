@@ -96,9 +96,12 @@ Route::middleware(['role:2'])->group(function () {
     // Route::get('/profile', 'ProfileController@index');
     // Route::get('/profile', 'ProfileController@show');
     // Route::get('/profile/{id}/edit', 'ProfileController@edit');
-    Route::get('/profile', 'ProfileController@edit');
+    Route::get('/profile', 'ProfileController@editpage');
+    Route::get('/pengajuan', 'ProfileController@indexadmin');
     Route::put('/profile/{id}', 'ProfileController@update');
-// p
+    Route::put('/pengajuan/{id}', 'ProfileController@pengajuan');
+    Route::put('/jadiadmin/{user_id}', 'ProfileController@jadiadmin');
+    Route::delete('/hapusakun/{user_id}', 'ProfileController@delete');
 
 
 // berita
