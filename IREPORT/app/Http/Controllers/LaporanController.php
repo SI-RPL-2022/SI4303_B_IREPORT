@@ -8,6 +8,7 @@ use DB;
 use App\Laporan;
 use App\User;
 use App\Profile;
+use App\Komentar;
 use GuzzleHttp\Client;
 
 class LaporanController extends Controller
@@ -38,6 +39,39 @@ class LaporanController extends Controller
             $tampil = DB::table('laporan')->where('user_id', Auth::id())->get();
         }
         return view('user.laporan.myreport', compact('tampil'));
+
+    }
+
+    public function upvote($id){
+        $tampil = Laporan::find($id);
+
+        if ($tampil->vote == null){
+            $tampil->vote = 1 ;
+            $tampil->update();
+        }else{
+            $vote = $tampil->vote;
+            $vote = $vote + 1;
+            $tampil->vote = $vote;
+            $tampil->update();
+        }
+
+        return redirect()->back();
+
+    }
+
+    public function downvote($id){
+        $tampil = Laporan::find($id);
+        if ($tampil->vote == null){
+            $tampil->vote =  0-1 ;
+            $tampil->update();
+        }else{
+            $vote = $tampil->vote;
+            $vote = $vote - 1;
+            $tampil->vote = $vote;
+            $tampil->update();
+        }
+
+        return redirect()->back();
     }
 
     public function showFilter($provinsi)
@@ -98,12 +132,11 @@ class LaporanController extends Controller
     }
 
 
-    public function show($id)
-    {
+    public function satudata($id)
+    {   
+        $komen = DB::table('komentar')->where('laporan_id', $id)->get();
         $detail = DB::table('laporan')->where('id', $id)->first();
-        // $tampil = DB::table('laporan')->where('user_id', Auth::id())->get();
-        // $tampil = Laporan::all();
-        return view('user.laporan.detail', compact('detail'));
+        return view('user.laporan.detail', compact('detail', 'komen'));
     }
 
     public function edit($id)
