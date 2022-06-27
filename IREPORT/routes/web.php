@@ -43,7 +43,7 @@ Auth::routes();
 
 Route::get('/terminal', 'TerminalController@terminal');
 Route::get('/laporan', 'LaporanController@index');
-Route::get('/laporan/{id}', 'LaporanController@show');
+Route::get('/laporan/{id}', 'LaporanController@satudata');
 Route::get('/laporan_/{provinsi}', 'LaporanController@showFilter');
 Route::get('/laporan/create', 'ProvinsiController@provinsi');
 Route::get('/berita_user', 'BeritaController@indexBeritaUser');
@@ -52,17 +52,8 @@ Route::get('/laporandownvote/{id}', 'LaporanController@downvote');
 // admin
 
 Route::middleware(['role:1'])->group(function () {
-    // Route::get('main', function () {
-    //     return view('admin/main');
-    // });
-    
-    // Route::get('/beritaAdmin/inputPage', 'ProfileController@showAdmin');
-    // Route::get('/beritaAdmin', 'ProfileController@showAdmin2');
-    // Route::get('/laporanAdmin', 'ProfileController@showAdmin3');
-    //berita
     Route::get('/beritaAdmin', 'BeritaController@indexBerita');
     Route::get('/beritaAdmin_', 'BeritaController@inputPage');
-    // Route::get('/beritaAdmin/inputPage', 'ProfileController@showInCreateBerita');
     Route::post('/beritaAdmin', 'BeritaController@inputData');
     Route::get('/beritaAdmin/{id}/edit', 'BeritaController@editPage');
     Route::put('/beritaAdmin/{id}', 'BeritaController@editData');
@@ -88,7 +79,13 @@ Route::middleware(['role:2'])->group(function () {
     Route::put('/laporan/{id}', 'LaporanController@update');
     Route::delete('/laporan/{id}', 'LaporanController@destroy');
     Route::get('/createLaporan', 'ProvinsiController@provinsi');
-    Route::get('/myreport', 'LaporanController@indexmyreport');
+    Route::get('/myreport', 'LaporanController@indexmyreport'); //Laporan saya
+    Route::get('/laporanupvote/{id}', 'LaporanController@upvote'); //Vote laporan
+    Route::get('/laporandownvote/{id}', 'LaporanController@downvote');
+    Route::post('/laporan/{id}', 'KomentarController@inputdata'); //Komentar
+    Route::delete('/laporan/{id}', 'KomentarController@hapus');
+    Route::get('/editkomen/{id}', 'KomentarController@editpage');
+    Route::put('/editdatakomen/{id}', 'KomentarController@editdata');
 });
 
 
@@ -104,31 +101,6 @@ Route::middleware(['role:2'])->group(function () {
     Route::put('/pengajuan/{id}', 'ProfileController@pengajuan');
     Route::put('/jadiadmin/{user_id}', 'ProfileController@jadiadmin');
     Route::delete('/hapusakun/{user_id}', 'ProfileController@delete');
-
-
-// berita
-// Route::get('createBerita', function () {
-//     return view('admin/berita/create');
-// });
-// Route::get('indexBerita', function () {
-//     return view('admin/berita/index');
-// });
-
-// Route::get('showBerita', function () {
-//     return view('admin/berita/show');
-// });
-
-// laporan
-// Route::get('createLaporan', function () {
-//     return view('admin/laporanUSer/create');
-// });
-// Route::get('indexLaporan', function () {
-//     return view('admin/laporanUSer/index');
-// });
-
-// Route::get('showLaporan', function () {
-//     return view('admin/laporanUSer/show');
-// });
 
     // Route::group(['middleware' => ['auth']], function () {
     //     Route::get('/laporan/create', 'LaporanController@create');
