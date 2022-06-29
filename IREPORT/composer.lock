@@ -7019,5 +7019,9 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
+<<<<<<< HEAD
     "plugin-api-version": "2.1.0"
+=======
+
+>>>>>>> 3e3823548dd3f4d3924ced090d92172eb9d2b848
 }
