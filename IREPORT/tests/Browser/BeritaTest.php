@@ -20,7 +20,12 @@ class BeritaTest extends DuskTestCase
             ->type('email', 'w@mail.com')
             ->type('password', '123')
             ->press('Login')
-            ->assertPathIs('/terminal');
+            ->assertPathIs('/terminal')
+            ->clickLink('BERITA')
+            ->assertPathIs('/berita_user')
+            ->assertSee('Cari')
+            ->type('search', 'kacau')
+            ->assertSee('Kacau! Baru 2 Jam Jalan Dicor Langsung Hancur');
         });
     }
 }
