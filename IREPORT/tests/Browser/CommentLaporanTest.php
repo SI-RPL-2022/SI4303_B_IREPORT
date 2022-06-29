@@ -16,11 +16,18 @@ class CommentLaporanTest extends DuskTestCase
     public function testExample()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
+            $browser->visit('/login')
                     ->type('email', 'w@mail.com')
                     ->type('password', '123')
                     ->press('Login')
-                    ->assertPathIs('/terminal');
+                    ->assertPathIs('/terminal')
+                    ->clickLink('HOME')
+                    ->clickLink('Detail')
+                    ->assertPathIs('/laporan/1')
+                    ->assertSee('Komentar')
+                    ->type('isi', 'Saya memberi komen')
+                    ->press('Submit')
+                    ->assertSee('Saya memberi komen');
         });
     }
 }
